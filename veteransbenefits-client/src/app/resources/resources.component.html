@@ -7,8 +7,8 @@
     <title>Resources Page</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script> <!-- Placeholder. No script is used on this page.-->
+    <link rel="stylesheet" href="resources.component.css">
+    <script src="resources.component.ts" defer></script> <!-- Placeholder. No script is used on this page.-->
 </head>
 
 <body>
@@ -17,9 +17,9 @@
     <!-- Must use full-width-navbar css class so the resource containers don't cover the right half of the navbar -->
     <nav class="full-width-navbar">
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="resources.html">Resources</a></li>
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li><a [routerLink]="['/faq']">FAQ</a></li>
+            <li><a [routerLink]="['/resources']">Resources</a></li>
             <li><a href="questionnaire.html">Questionnaire</a></li>
             <li><a href="progress.html">Progress</a></li>
         </ul>

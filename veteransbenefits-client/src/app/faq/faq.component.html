@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="faqScript.js" defer></script>
+    <link rel="stylesheet" href="faq.component.css">
+    <script src="faqScript.component.ts" defer></script>
 </head>
 
 <body>
 
     <nav class="navbar">
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="resources.html">Resources</a></li>
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li><a [routerLink]="['/faq']">FAQ</a></li>
+            <li><a [routerLink]="['/resources']">Resources</a></li>
             <li><a href="questionnaire.html">Questionnaire</a></li>
             <li><a href="progress.html">Progress</a></li>
         </ul>
