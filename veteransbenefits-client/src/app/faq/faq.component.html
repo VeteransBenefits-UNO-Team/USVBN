@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="faqScript.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="questionnaire.html">Questionnaire</a></li>
+            <li><a href="progress.html">Progress</a></li>
+        </ul>
+    </nav>
+
+    <div class="faq-section">
+        <button class="faq-question" onclick="toggleAnswer('answer1')">What is USVBN?</button> <!-- On click calls faqScript to toggle the answer visibile-->
+        <div class="faq-answer" id="answer1">
+            <p>USVBN stands for United States Veterans Benefits. This site is all about America's military veteran and their Department of Veterans Affairs (The VA) benefits. We may also be able help you with Social Security benefits questions.</p>
+        </div>
+
+        <button class="faq-question" onclick="toggleAnswer('answer2')">How do I start?</button>
+        <div class="faq-answer" id="answer2">
+            <p>In order to get started head over to our questionnaire page.</p>
+        </div>
+
+        <!-- Add more questions and answers as needed -->
+    </div>
+
+</body>
+
+</html>

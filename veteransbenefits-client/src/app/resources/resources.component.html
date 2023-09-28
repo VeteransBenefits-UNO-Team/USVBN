@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script> <!-- Placeholder. No script is used on this page.-->
+</head>
+
+<body>
+
+    <!-- Full width Navigation Bar -->
+    <!-- Must use full-width-navbar css class so the resource containers don't cover the right half of the navbar -->
+    <nav class="full-width-navbar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="questionnaire.html">Questionnaire</a></li>
+            <li><a href="progress.html">Progress</a></li>
+        </ul>
+    </nav>
+
+    <!-- Resources Section -->
+    <div class="container mt-5"> <!-- mt-5 is a bootstrap class. m stands for margin, t refers to top (the top margin) 5 represents the size of the margin (out of a 0-5 scale with bootstrap) -->
+        <h2 class="mb-4">Our Resources</h2> <!-- mb-4 is a bootstrap class. m stands for margin, b refers to bottom (the bottom margin) 4 represents the size of the margin (out of a 0-5 scale with bootstrap)-->
+        <div class="row">
+            <!-- Resource 1 -->
+            <div class="col-md-4 mb-4"> <!-- col-md-4 is a bootstrap class. col sets the class into columns. md chooses medium display page. 4 chooses to use 4/12 columns provided by bootstrap resulting in 3 resources displayed side by side before moving to the next row. -->
+                <div class="card"> <!-- card is a bootstrap class that acts as a flexble container -->
+                    <div class="card-body">
+                        <h5 class="card-title">VA Regional Office (VERA) appointment scheduler</h5>
+                        <p class="card-text">This site is for scheduling one-on-one appointments with a VA regional office. </p>
+                        <a href="https://va.my.site.com/VAVERA/s/" class="btn btn-primary">Read More</a> <!-- btn is a bootstrap class for buttons. btn-primary adds in style (solid background, white text, 3D shadow)-->
+                    </div>
+                </div>
+            </div>
+            <!-- Resource 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">The Clinicians Guide</h5>
+                        <p class="card-text">This guide is designed to assist clinicians when performing compensation and pension (C&P) examinations. 
+                            Since C&P examinations differ markedly from traditional medical examinations, special clinician guidance is required. 
+                            This guide provides information for performing examinations that meet the requirements of the federal law.</p>
+                        <a href="https://nebula.wsimg.com/abfac4b8e09be3ac271b628f32919e7a?AccessKeyId=1FBD76F67BF87C8DD859&disposition=0&alloworigin=1" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Resource 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">State Veteran Benefit Finder</h5>
+                        <p class="card-text">This tool allows users to filter state-level veteran benefits by type of benefit, beneficiary, and state to identify benefits for which they may be eligible, providing a unique and invaluable reference. 
+                            The accompanying report offers analysis of trends in state-level benefits and includes recommendations for an array of key stakeholders, from veterans to those who serve them across domains.</p>
+                        <a href="https://www.cnas.org/publications/reports/state-veteran-benefit-finder" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Section -->
+<footer class="footer mt-auto py-3 bg-light"> <!-- mt-auto is a bootstrap class for an auto sized top margin. py-3 is padding, on the y-axis, with a size of 3. bg-light is a ligt gray background color-->
+    <div class="container text-center">
+        <span class="text-muted">For more help please visit the r/VeteransBenefits subreddit</span>
+        <br>
+        <a href="https://www.reddit.com/r/VeteransBenefits/">Visit our page on Reddit</a>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
