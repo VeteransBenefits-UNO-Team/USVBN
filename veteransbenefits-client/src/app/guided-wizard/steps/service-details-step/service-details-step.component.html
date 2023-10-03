@@ -1,0 +1,16 @@
+<!-- service-details-step.component.html -->
+<form [formGroup]="serviceDetailsForm">
+  <mat-form-field>
+    <mat-label>Years of Service</mat-label>
+    <input matInput formControlName="yearsOfService" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Branch</mat-label>
+    <input matInput formControlName="branch" />
+  </mat-form-field>
+
+  <!-- More fields here -->
+
+  <button mat-button (click)="moveToNextStep()">Next</button>
+</form>
