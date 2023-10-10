@@ -4,7 +4,7 @@ import { GuidedWizardService } from './shared/guided-wizard.service';
 @Component({
   selector: 'app-guided-wizard',
   templateUrl: './guided-wizard.component.html',
-  styleUrls: ['./guided-wizard.component.css'],
+  styleUrls: ['./guided-wizard.component.scss'],
 })
 export class GuidedWizardComponent {
   currentStep = 0;
