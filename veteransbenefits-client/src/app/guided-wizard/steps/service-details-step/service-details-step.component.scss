@@ -1,0 +1,23 @@
+/* service-details-step.component.scss */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.custom-panel {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.button-container {
+  text-align: right;
+  padding-top: 16px;
+}
