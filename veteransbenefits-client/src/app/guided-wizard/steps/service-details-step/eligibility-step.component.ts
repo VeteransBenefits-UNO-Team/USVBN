@@ -3,11 +3,11 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { GuidedWizardService } from '../../shared/guided-wizard.service';
 
 @Component({
-  selector: 'app-service-details-step',
-  templateUrl: './service-details-step.component.html',
-  styleUrls: ['./service-details-step.component.scss'],
+  selector: 'app-eligibility-step',
+  templateUrl: './eligibility-step.component.html',
+  styleUrls: ['./eligibility-step.component.scss'],
 })
-export class ServiceDetailsStepComponent {
+export class EligibilityStepComponent {
   serviceDetailsForm: FormGroup;
 
   constructor(
