@@ -1,41 +1,88 @@
-<!-- service-details-step.component.html -->
 <div class="container">
-  <mat-accordion>
-    <mat-expansion-panel class="custom-panel">
-      <mat-expansion-panel-header>
-        <mat-panel-title> General Service Details </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="input-container">
-        <mat-form-field appearance="outline">
-          <mat-label>Years of Service</mat-label>
-          <input matInput formControlName="yearsOfService" />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Branch</mat-label>
-          <input matInput formControlName="branch" />
-        </mat-form-field>
-      </div>
-    </mat-expansion-panel>
+  <form [formGroup]="serviceDetailsForm" (ngSubmit)="moveToNextStep()">
+    <div class="step-header">
+      <h2>General Service Details</h2>
+      <p>Start with some basic information about your military service</p>
+    </div>
+    <div class="form-content">
+      <!-- Years of Service -->
+      <mat-form-field appearance="outline" class="tt-form-field">
+        <mat-label>Years of Service</mat-label>
+        <input matInput formControlName="yearsOfService" />
+        <mat-icon matSuffix>event</mat-icon>
+      </mat-form-field>
 
-    <mat-expansion-panel class="custom-panel">
-      <mat-expansion-panel-header>
-        <mat-panel-title> Additional Information </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="input-container">
-        <mat-form-field appearance="outline">
-          <mat-label>Roles or Positions</mat-label>
-          <input matInput formControlName="roles" />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Status</mat-label>
-          <input matInput formControlName="status" />
-        </mat-form-field>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <div class="button-container">
-    <button mat-raised-button color="primary" (click)="moveToNextStep()">
-      Next
-    </button>
-  </div>
+      <!-- Branch -->
+      <mat-form-field appearance="outline" class="tt-form-field">
+        <mat-label>Branch</mat-label>
+        <mat-select
+          formControlName="branch"
+          (selectionChange)="onBranchSelect($event)"
+        >
+          <mat-option *ngFor="let branch of branches" [value]="branch">{{
+            branch
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Service Type -->
+      <mat-form-field
+        appearance="outline"
+        class="tt-form-field"
+        *ngIf="serviceDetailsForm.get('branch')?.value"
+      >
+        <mat-label>Service Type</mat-label>
+        <mat-select formControlName="serviceType">
+          <mat-option *ngFor="let type of serviceTypes" [value]="type">
+            {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Enlisted/Officer -->
+      <mat-form-field
+        appearance="outline"
+        class="tt-form-field"
+        *ngIf="showRankCategory"
+      >
+        <mat-label>Enlisted or Officer</mat-label>
+        <mat-select
+          formControlName="rankCategory"
+          (selectionChange)="onRankCategorySelect($event)"
+        >
+          <mat-option
+            *ngFor="let category of rankCategories"
+            [value]="category"
+            >{{ category }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Rank at Discharge -->
+      <mat-form-field
+        appearance="outline"
+        class="tt-form-field"
+        *ngIf="filteredRanks.length > 0"
+      >
+        <mat-label>Rank at Discharge</mat-label>
+        <mat-select formControlName="dischargeRank">
+          <mat-option *ngFor="let rank of filteredRanks" [value]="rank">{{
+            rank
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-actions">
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="tt-next-btn"
+        [disabled]="!serviceDetailsForm.valid"
+      >
+        Next
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+  </form>
 </div>
