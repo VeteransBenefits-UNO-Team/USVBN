@@ -19,57 +19,45 @@
           formControlName="branch"
           (selectionChange)="onBranchSelect($event)"
         >
-          <mat-option *ngFor="let branch of branches" [value]="branch">{{
-            branch
-          }}</mat-option>
+          <mat-option *ngFor="let branch of branches$ | async" [value]="branch">
+            {{ branch }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 
       <!-- Service Type -->
-      <mat-form-field
-        appearance="outline"
-        class="tt-form-field"
-        *ngIf="serviceDetailsForm.get('branch')?.value"
-      >
+      <mat-form-field appearance="outline" class="tt-form-field">
         <mat-label>Service Type</mat-label>
-        <mat-select formControlName="serviceType">
-          <mat-option *ngFor="let type of serviceTypes" [value]="type">
+        <mat-select
+          formControlName="serviceType"
+          (selectionChange)="onServiceTypeSelect($event)"
+        >
+          <mat-option *ngFor="let type of serviceTypes$ | async" [value]="type">
             {{ type }}
           </mat-option>
         </mat-select>
       </mat-form-field>
 
-      <!-- Enlisted/Officer -->
-      <mat-form-field
-        appearance="outline"
-        class="tt-form-field"
-        *ngIf="showRankCategory"
-      >
-        <mat-label>Enlisted or Officer</mat-label>
+      <!-- Rank Category -->
+      <mat-form-field appearance="outline" class="tt-form-field">
+        <mat-label>Rank Category</mat-label>
         <mat-select
           formControlName="rankCategory"
           (selectionChange)="onRankCategorySelect($event)"
         >
           <mat-option
-            *ngFor="let category of rankCategories"
+            *ngFor="let category of rankCategories$ | async"
             [value]="category"
-            >{{ category }}</mat-option
           >
+            {{ category }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 
-      <!-- Rank at Discharge -->
-      <mat-form-field
-        appearance="outline"
-        class="tt-form-field"
-        *ngIf="filteredRanks.length > 0"
-      >
+      <!-- Discharge Rank -->
+      <mat-form-field appearance="outline" class="tt-form-field">
         <mat-label>Rank at Discharge</mat-label>
-        <mat-select formControlName="dischargeRank">
-          <mat-option *ngFor="let rank of filteredRanks" [value]="rank">{{
-            rank
-          }}</mat-option>
-        </mat-select>
+        <input matInput formControlName="dischargeRank" />
       </mat-form-field>
     </div>
     <div class="form-actions">

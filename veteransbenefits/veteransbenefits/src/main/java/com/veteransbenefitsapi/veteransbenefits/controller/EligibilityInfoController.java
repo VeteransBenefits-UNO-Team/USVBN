@@ -1,43 +1,28 @@
 package com.veteransbenefitsapi.veteransbenefits.controller;
 
-import com.veteransbenefitsapi.veteransbenefits.model.EligibilityInfo;
-import com.veteransbenefitsapi.veteransbenefits.repository.EligibilityInfoRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
+import com.veteransbenefitsapi.veteransbenefits.enums.EligibilityInfoEnums;
+import com.veteransbenefitsapi.veteransbenefits.enums.EnumFormatter;
 
 @RestController
 @RequestMapping("/api/eligibility")
 public class EligibilityInfoController {
 
-    private final EligibilityInfoRepository repository;
+    @GetMapping("/all")
+    public EligibilityInfoEnums getAllEnums() {
+        EligibilityInfoEnums response = new EligibilityInfoEnums();
 
-    public EligibilityInfoController(EligibilityInfoRepository repository) {
-        this.repository = repository;
+        response.setServiceTypes(EnumFormatter.formatEnums(EligibilityInfoEnums.ServiceType.values()));
+        response.setBranches(EnumFormatter.formatEnums(EligibilityInfoEnums.Branch.values()));
+        response.setRankCategories(EnumFormatter.formatEnums(EligibilityInfoEnums.RankCategory.values()));
+        response.setArmyRanks(EnumFormatter.formatEnums(EligibilityInfoEnums.ArmyRanks.values()));
+        response.setNavyRanks(EnumFormatter.formatEnums(EligibilityInfoEnums.NavyRanks.values()));
+        response.setAirForceRanks(EnumFormatter.formatEnums(EligibilityInfoEnums.AirForceRanks.values()));
+        response.setMarineRanks(EnumFormatter.formatEnums(EligibilityInfoEnums.MarineRanks.values()));
+        response.setCoastGuardRanks(EnumFormatter.formatEnums(EligibilityInfoEnums.CoastGuardRanks.values()));
+
+        return response;
     }
 
-    @GetMapping
-    public Collection<EligibilityInfo> getAll() {
-        return repository.findAll();
-    }
-
-    @GetMapping("/{years}")
-    public EligibilityInfo getById(@PathVariable int years) {
-        return repository.findById(years);
-    }
-
-    @PostMapping
-    public EligibilityInfo create(@RequestBody EligibilityInfo info) {
-        return repository.save(info);
-    }
-
-    @PutMapping("/{years}")
-    public EligibilityInfo update(@PathVariable int years, @RequestBody EligibilityInfo info) {
-        return repository.update(years, info);
-    }
-
-    @DeleteMapping("/{years}")
-    public void delete(@PathVariable int years) {
-        repository.delete(years);
-    }
 }

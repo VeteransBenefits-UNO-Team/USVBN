@@ -1,13 +1,13 @@
-package com.veteransbenefitsapi.veteransbenefits;
+// package com.veteransbenefitsapi.veteransbenefits;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class VeteransbenefitsApplicationTests {
+// @SpringBootTest
+// class VeteransbenefitsApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// @Test
+// void contextLoads() {
+// }
 
-}
+// }

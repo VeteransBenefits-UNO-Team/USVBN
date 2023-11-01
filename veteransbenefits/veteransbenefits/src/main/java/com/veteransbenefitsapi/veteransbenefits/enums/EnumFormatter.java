@@ -19,4 +19,14 @@ public class EnumFormatter {
 
         return formattedName.toString();
     }
+
+    public static String[] formatEnums(Enum<?>[] enumValues) {
+        String[] formattedEnums = new String[enumValues.length];
+
+        for (int i = 0; i < enumValues.length; i++) {
+            formattedEnums[i] = formatEnum(enumValues[i]);
+        }
+
+        return formattedEnums;
+    }
 }

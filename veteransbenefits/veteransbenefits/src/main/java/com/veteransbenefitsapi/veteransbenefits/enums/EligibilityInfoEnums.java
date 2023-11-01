@@ -1,6 +1,18 @@
 package com.veteransbenefitsapi.veteransbenefits.enums;
 
+import lombok.Data;
+
+@Data
 public class EligibilityInfoEnums {
+
+    private String[] serviceTypes;
+    private String[] branches;
+    private String[] rankCategories;
+    private String[] ArmyRanks;
+    private String[] NavyRanks;
+    private String[] AirForceRanks;
+    private String[] MarineRanks;
+    private String[] CoastGuardRanks;
 
     public enum ServiceType {
         ACTIVE,
@@ -93,4 +105,5 @@ public class EligibilityInfoEnums {
         COMMAND_MASTER_CHIEF,
         MASTER_CHIEF_PETTY_OFFICER_OF_THE_COAST_GUARD
     }
+
 }
