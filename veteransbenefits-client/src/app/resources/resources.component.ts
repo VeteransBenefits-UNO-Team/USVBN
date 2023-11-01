@@ -14,25 +14,34 @@ export class ResourcesComponent {
     { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
     description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
     link: 'https://va.my.site.com/VAVERA/s/' },
-    { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
-    description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
+    { title: 'VA Regional Office (VERA) appointment scheduler2', category: 'Appointment Scueduling', 
+    description: 'TEST This site is for scheduling one-on-one appointments with a VA regional office.', 
     link: 'https://va.my.site.com/VAVERA/s/' },
+    
   ];
   
-  resourceItems: Array<{ title: string, category: string, description: string, link: string }> = [
-    { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
-    description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
-    link: 'https://va.my.site.com/VAVERA/s/' },
-    { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
-    description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
-    link: 'https://va.my.site.com/VAVERA/s/' },
-    // Add more resource items with the required properties
-  ];
+  // resourceItems: Array<{ title: string, category: string, description: string, link: string }> = [
+  //   { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
+  //   description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
+  //   link: 'https://va.my.site.com/VAVERA/s/' },
+  //   { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
+  //   description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
+  //   link: 'https://va.my.site.com/VAVERA/s/' },
+  //   { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
+  //   description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
+  //   link: 'https://va.my.site.com/VAVERA/s/' },
+  //   { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
+  //   description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
+  //   link: 'https://va.my.site.com/VAVERA/s/' },
+  //   // Add more resource items with the required properties
+  // ];
 
   filteredResources: any[] = this.resources;
+  resource: any; // Declare the resource property
+
 
   filterResources() {
-    return this.resourceItems.filter(resource => {
+    return this.resources.filter(resource => {
       // Check if the resource's category is selected or no category is selected
       const isCategoryMatch = this.selectedCategory.length === 0 || this.selectedCategory.includes(resource.category);
       
@@ -44,6 +53,7 @@ export class ResourcesComponent {
       // Return true if both category and search match, otherwise false
       return isCategoryMatch && isSearchMatch;
     });
+    this.updateFilteredResources();
   }
 
   updateFilteredResources() {
@@ -60,7 +70,7 @@ export class ResourcesComponent {
     const searchTerm = this.searchInput.toLowerCase();
 
     // Filter the resource items based on the search input
-    const searchResults = this.resourceItems.filter(resource =>
+    const searchResults = this.resources.filter(resource =>
       resource.title.toLowerCase().includes(searchTerm) ||
       resource.description.toLowerCase().includes(searchTerm)
     );
