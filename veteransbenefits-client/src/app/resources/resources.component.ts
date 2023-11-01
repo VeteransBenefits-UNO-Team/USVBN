@@ -86,7 +86,7 @@ export class ResourcesComponent {
   }
 
   resetCategories() {
-    this.selectedCategory = ' ';
+    this.selectedCategory = '';
     this.updateFilteredResources();
   }
 
