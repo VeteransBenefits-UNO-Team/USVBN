@@ -43,6 +43,15 @@ export class ResourcesComponent {
     { title: 'Presidential Memorial Certificates (PMC)', category: 'Death Benefits', 
     description: 'Engraved paper signed by the current president to honor those who have served. Information regarding eligiblity, application, and certificate transportation.', 
     link: 'https://www.va.gov/burials-memorials/memorial-items/presidential-memorial-certificates/' },
+    { title: 'Benefits Delivery at Discharge (BDD)', category: 'Death Benefits', 
+    description: 'Information developed from r/VeteransBenefits relating to applying for Benefits at Discharge. Must be completed 90-180 days before separation.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/bdd/' },
+    { title: 'Benefits Delivery at Discharge (BDD)', category: 'Disability Compensation', 
+    description: 'Information compiled by r/VeteransBenefits relating to applying for Benefits at Discharge. Must be completed 90-180 days before separation.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/bdd/' },
+    { title: 'Aggregated Service Connection', category: 'Disability Compensation', 
+    description: 'Information developed from r/VeteransBenefits relating to applying for Benefits at Discharge. Helps users to understand how to determine expected benefits from rating of pre-service (pre-existing) and post-service conditions based on aggravation.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/agg/' },
     
   ];
   
