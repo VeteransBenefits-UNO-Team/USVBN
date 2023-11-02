@@ -1,0 +1,244 @@
+<div class="container">
+  <form [formGroup]="personalInfoForm" (ngSubmit)="moveToNextStep()">
+    <div class="step-header">
+      <h2>Personal Details</h2>
+      <p>
+        We need some basic information about you for our records. Don't worry,
+        it's secure.
+      </p>
+    </div>
+
+    <mat-accordion class="form-content">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Full Legal Name </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Middle Name</mat-label>
+            <input matInput formControlName="middleName" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Suffix (e.g., Jr., Sr., III)</mat-label>
+            <input matInput formControlName="suffix" />
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Date of Birth </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Date of Birth</mat-label>
+            <input
+              matInput
+              formControlName="dateOfBirth"
+              [matDatepicker]="dobPicker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="dobPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #dobPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+
+      <!-- Gender -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Gender </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section">
+          <mat-radio-group aria-label="Gender" formControlName="gender">
+            <ng-container *ngFor="let gender of genders">
+              <mat-radio-button value="gender.toLowerCase()">{{
+                gender
+              }}</mat-radio-button>
+            </ng-container>
+          </mat-radio-group>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Contact Information </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Primary Phone Number</mat-label>
+            <input matInput formControlName="primaryPhone" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Secondary Phone Number (Optional)</mat-label>
+            <input matInput formControlName="secondaryPhone" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Email Address</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+
+      <!-- Current Address -->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Current Address </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <!-- Form fields -->
+        <div class="form-section">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Street Address</mat-label>
+            <input matInput formControlName="streetAddress" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Zip Code</mat-label>
+            <input matInput formControlName="zipCode" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-radio-group
+              aria-label="Residential Status"
+              formControlName="residentialStatus"
+            >
+              <ng-container *ngFor="let status of residentialStatuses">
+                <mat-radio-button value="status.toLowerCase()">{{
+                  status
+                }}</mat-radio-button>
+              </ng-container>
+            </mat-radio-group>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section"></div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Emergency Contact </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="emergencyContactName" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Relationship to Veteran</mat-label>
+            <input matInput formControlName="emergencyContactRelationship" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="emergencyContactPhone" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Email (Optional)</mat-label>
+            <input matInput formControlName="emergencyContactEmail" />
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Marital Status </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section">
+          <mat-radio-group
+            aria-label="Select a marital status"
+            formControlName="maritalStatus"
+          >
+            <ng-container *ngFor="let status of maritalStatuses">
+              <mat-radio-button value="status.toLowerCase()">{{
+                status
+              }}</mat-radio-button>
+            </ng-container>
+          </mat-radio-group>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Ethnicity/Race (optional) </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section">
+          <mat-radio-group
+            aria-label="Ethnicity/Race"
+            formControlName="ethnicity"
+          >
+            <ng-container *ngFor="let ethnicity of ethnicities">
+              <mat-radio-button value="ethnicity.toLowerCase()">{{
+                ethnicity
+              }}</mat-radio-button>
+            </ng-container>
+          </mat-radio-group>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Language Preference </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="form-section">
+          <mat-radio-group
+            aria-label="Preferred Language"
+            formControlName="preferredLanguage"
+          >
+            <ng-container *ngFor="let language of languages">
+              <mat-radio-button value="language.toLowerCase()">{{
+                language
+              }}</mat-radio-button>
+            </ng-container>
+          </mat-radio-group>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="next-btn"
+        [disabled]="!personalInfoForm.valid"
+      >
+        Save & Continue
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

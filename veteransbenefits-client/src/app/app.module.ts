@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { MatRadioModule } from '@angular/material/radio';
 import { FaqComponent } from './faq/faq.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { HomeComponent } from './home/home.component';
@@ -19,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PersonalInfoStepComponent } from './guided-wizard/steps/personal-info-step/personal-info-step/personal-info-step.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { MatSelectModule } from '@angular/material/select';
     HomeComponent,
     GuidedWizardComponent,
     EligibilityStepComponent,
+    PersonalInfoStepComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatOptionModule,
     FormsModule,
     MatSelectModule,
+    MatRadioModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
