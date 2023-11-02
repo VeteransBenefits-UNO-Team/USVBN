@@ -11,7 +11,7 @@ import { routes } from './app-routing.module';
 import { GuidedWizardComponent } from './guided-wizard/guided-wizard.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { EligibilityStepComponent } from './guided-wizard/steps/service-details-step/eligibility-step.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
