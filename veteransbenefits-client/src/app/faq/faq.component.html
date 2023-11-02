@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQ Page</title>
     <link rel="stylesheet" href="faq.component.scss" />
-    <script src="faqScript.component.ts" defer></script>
+    <script src="faq.component.ts" defer></script>
   </head>
 
   <body>
@@ -19,8 +19,14 @@
       </ul>
     </nav>
 
+    <div style="text-align: center; margin-top: 20px;">
+      <input type="text" [(ngModel)]="searchInput" (input)="searchQuestions()" placeholder = "Search..." style="padding: 10px; width: 500px; border: 3px solid #ccc; border-radius: 100px;">
+    </div>
+
+
+
     <div class="faq-section">
-      <button class="faq-question" onclick="toggleAnswer('answer1')">
+      <button class="faq-question" (click)="toggleAnswer('answer1')">
         What is USVBN?
       </button>
       <!-- On click calls faqScript to toggle the answer visibile-->
@@ -33,7 +39,7 @@
         </p>
       </div>
 
-      <button class="faq-question" onclick="toggleAnswer('answer2')">
+      <button class="faq-question" (click)="toggleAnswer('answer2')">
         How do I start?
       </button>
       <div class="faq-answer" id="answer2">
@@ -41,6 +47,20 @@
       </div>
 
       <!-- Add more questions and answers as needed -->
+      <button class="faq-question" (click)="toggleAnswer('answer3')">
+        TEST?
+      </button>
+      <!-- On click calls faqScript to toggle the answer visibile-->
+      <div class="faq-answer" id="answer3">
+        <p>
+          USVBN stands for United States Veterans Benefits. This site is all
+          about America's military veteran and their Department of Veterans
+          Affairs (The VA) benefits. We may also be able help you with Social
+          Security benefits questions.
+        </p>
+      </div>      
+
     </div>
+    
   </body>
 </html>
