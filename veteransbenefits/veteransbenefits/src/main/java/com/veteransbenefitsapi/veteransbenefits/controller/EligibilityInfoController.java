@@ -7,6 +7,7 @@ import com.veteransbenefitsapi.veteransbenefits.enums.EnumFormatter;
 
 @RestController
 @RequestMapping("/api/eligibility")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EligibilityInfoController {
 
     @GetMapping("/all")

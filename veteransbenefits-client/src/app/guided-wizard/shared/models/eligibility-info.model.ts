@@ -1,6 +1,10 @@
 export interface EligibilityInfo {
-  branch: string;
-  component: string;
-  rankType: string;
-  rankAtDischarge: string;
+  serviceTypes: string[];
+  branches: string[];
+  rankCategories: string[];
+  airForceRanks: string[];
+  marineRanks: string[];
+  coastGuardRanks: string[];
+  navyRanks: string[];
+  armyRanks: string[];
 }

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { of, from } from 'rxjs';
-import { catchError, mergeMap, switchMap } from 'rxjs/operators';
-import * as EligibilityInfoActions from './eligibility-info.actions';
+import { catchError, map, of, switchMap } from 'rxjs';
 import { EligibilityInfoService } from './eligibility-info.service';
+import * as EligibilityInfoActions from './eligibility-info.actions';
 
 @Injectable()
 export class EligibilityInfoEffects {
@@ -12,21 +11,10 @@ export class EligibilityInfoEffects {
       ofType(EligibilityInfoActions.loadAll),
       switchMap(() =>
         this.eligibilityInfoService.getAll().pipe(
-          mergeMap((data: any) =>
-            from([
-              EligibilityInfoActions.loadAllSuccess({
-                data: data.eligibilityInfo,
-              }),
-              EligibilityInfoActions.setBranches({ branches: data.branches }),
-              EligibilityInfoActions.setServiceTypes({
-                serviceTypes: data.serviceTypes,
-              }),
-              EligibilityInfoActions.setRankCategories({
-                rankCategories: data.rankCategories,
-              }),
-            ])
-          ),
-          catchError(() => of({ type: '[Eligibility Info] Load All Failed' }))
+          map((data: any) => EligibilityInfoActions.loadAllSuccess({ data })),
+          catchError((error) =>
+            of(EligibilityInfoActions.loadAllFailed({ error }))
+          )
         )
       )
     )

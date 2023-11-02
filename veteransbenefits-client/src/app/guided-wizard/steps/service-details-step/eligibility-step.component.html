@@ -57,7 +57,14 @@
       <!-- Discharge Rank -->
       <mat-form-field appearance="outline" class="tt-form-field">
         <mat-label>Rank at Discharge</mat-label>
-        <input matInput formControlName="dischargeRank" />
+        <mat-select formControlName="rankAtDischarge">
+          <mat-option
+            *ngFor="let rank of ranksAtDischarge$ | async"
+            [value]="rank"
+          >
+            {{ rank }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
     <div class="form-actions">

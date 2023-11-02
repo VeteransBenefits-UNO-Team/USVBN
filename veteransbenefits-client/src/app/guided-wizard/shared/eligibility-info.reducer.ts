@@ -1,31 +1,18 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as EligibilityInfoActions from './eligibility-info.actions';
-import { EligibilityState } from './eligibility-info.state';
-
-export const initialState: EligibilityState = {
-  eligibilityInfo: [],
-  branches: [],
-  serviceTypes: [],
-  rankCategories: [],
-};
+import { EligibilityState, initialState } from './eligibility-info.state';
 
 const _eligibilityInfoReducer = createReducer(
   initialState,
-  on(EligibilityInfoActions.loadAllSuccess, (state, action) => ({
+  on(EligibilityInfoActions.loadAllSuccess, (state, { data }) => ({
     ...state,
-    eligibilityInfo: action.data,
+    eligibilityInfo: data,
+    error: null,
   })),
-  on(EligibilityInfoActions.setBranches, (state, action) => ({
+  on(EligibilityInfoActions.loadAllFailed, (state, { error }) => ({
     ...state,
-    branches: action.branches,
-  })),
-  on(EligibilityInfoActions.setServiceTypes, (state, action) => ({
-    ...state,
-    serviceTypes: action.serviceTypes,
-  })),
-  on(EligibilityInfoActions.setRankCategories, (state, action) => ({
-    ...state,
-    rankCategories: action.rankCategories,
+    eligibilityInfo: null,
+    error: error,
   }))
 );
 
@@ -33,5 +20,6 @@ export function eligibilityInfoReducer(
   state: EligibilityState | undefined,
   action: Action
 ) {
+  console.log('eligibilityInfoReducer', state, action);
   return _eligibilityInfoReducer(state, action);
 }
