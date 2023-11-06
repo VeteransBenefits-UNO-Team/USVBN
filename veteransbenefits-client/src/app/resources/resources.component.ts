@@ -16,7 +16,7 @@ export class ResourcesComponent {
   //1. Trying to break up the description into multiple lines to look better causes error
   //2. Filter does not work on cards
   resources: Array<{ title: string, category: string, description: string, link: string }> = [
-    { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
+    { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scheduling', 
     description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
     link: 'https://va.my.site.com/VAVERA/s/' },
     { title: 'The Clinicians Guide', category: 'Health', 
@@ -45,9 +45,6 @@ export class ResourcesComponent {
     link: 'https://www.va.gov/burials-memorials/memorial-items/presidential-memorial-certificates/' },
     { title: 'Benefits Delivery at Discharge (BDD)', category: 'Death Benefits', 
     description: 'Information developed from r/VeteransBenefits relating to applying for Benefits at Discharge. Must be completed 90-180 days before separation.', 
-    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/bdd/' },
-    { title: 'Benefits Delivery at Discharge (BDD)', category: 'Disability Compensation', 
-    description: 'Information compiled by r/VeteransBenefits relating to applying for Benefits at Discharge. Must be completed 90-180 days before separation.', 
     link: 'https://www.reddit.com/r/VeteransBenefits/wiki/bdd/' },
     { title: 'Aggregated Service Connection', category: 'Disability Compensation', 
     description: 'Information developed from r/VeteransBenefits relating to applying for Benefits at Discharge. Helps users to understand how to determine expected benefits from rating of pre-service (pre-existing) and post-service conditions based on aggravation.', 
