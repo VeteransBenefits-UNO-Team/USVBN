@@ -4,10 +4,12 @@
   
   .image-slideshow {
     max-width: 1000px;
-    width: 1000px; /* Set the fixed width */
+    width: 800px; /* Set the fixed width */
     height: 300px; /* Set the fixed height */
     margin: auto;
-    position: relative;
+    margin-top: 70px; /* Add margin-top to create space below the navbar */
+    margin-bottom: -20px;
+    position: center;
     overflow: hidden; /* Hide overflow content */
   }
   

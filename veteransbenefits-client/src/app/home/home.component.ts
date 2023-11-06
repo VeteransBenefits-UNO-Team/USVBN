@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
       const currentImage = images[index - 1] as HTMLElement;
       currentImage.style.display = 'block';
 
-      setTimeout(displayImages, 5000);
+      setTimeout(displayImages, 10000);
     }
   }
 }
