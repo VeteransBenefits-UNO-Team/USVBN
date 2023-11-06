@@ -4,12 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-    <link
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="home.component.scss" />
-    <script src="home.component.ts" defer></script>
   </head>
 
   <body>
@@ -23,8 +19,21 @@
       </ul>
     </nav>
 
+    <!-- Slideshow Section -->
+    <div class="image-slideshow">
+      <div class="image fade">
+        <img src="https://images.pexels.com/photos/8253834/pexels-photo-8253834.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Photo1">
+      </div>
+      <div class="image fade">
+        <img src="https://images.pexels.com/photos/2783241/pexels-photo-2783241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Photo2">
+      </div>
+      <div class="image fade">
+        <img src="https://images.pexels.com/photos/40820/military-men-departing-service-uniform-40820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Photo3">
+      </div>
+    </div>
+
     <div class="container mt-5">
-      <h2 class="mb-4">Our Mission</h2>
+      <h2 class="mb-4" style="font-size: 40px; text-align: center;">Our Mission</h2>
       <h5 class="mb-5">
         The purpose of this website is to help veterans get the benefits that
         they deserve after serving our country. Navigating the complex process
@@ -38,29 +47,25 @@
       <h5 class="mb-1" align="center">
         To get started take our online questionnaire:
       </h5>
-      <a [routerLink]="['/guided-wizard']"
-        ><p align="center">Click here to start questionnaire</p></a
-      >
+      <a [routerLink]="['/guided-wizard']"><p align="center">Click here to start questionnaire</p></a>
     </div>
 
     <br /><br /><br /><br /><br />
 
     <!-- Footer Section -->
     <footer class="footer mt-auto py-3 bg-light">
-      <!-- mt-auto is a bootstrap class for an auto sized top margin. py-3 is padding, on the y-axis, with a size of 3. bg-light is a ligt gray background color-->
       <div class="container text-center">
-        <span class="text-muted"
-          >For more help please visit the r/VeteransBenefits subreddit</span
-        >
+        <span class="text-muted">For more help please visit the r/VeteransBenefits subreddit</span>
         <br />
-        <a href="https://www.reddit.com/r/VeteransBenefits/"
-          >Visit our page on Reddit</a
-        >
+        <a href="https://www.reddit.com/r/VeteransBenefits/">Visit our page on Reddit</a>
       </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Add your TypeScript script file (main.ts) here -->
+    <script src="main.ts"></script>
   </body>
 </html>
