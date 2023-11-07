@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GuidedWizardService } from '../../shared/guided-wizard.service';
-import { RankService } from '../../shared/rank.service';
+import { Store } from '@ngrx/store';
+import { Observable, of, BehaviorSubject } from 'rxjs';
+import { EligibilityState } from '../../shared/eligibility-info.state';
+import { loadAll } from '../../shared/eligibility-info.actions';
+import { EligibilityInfoService } from '../../shared/eligibility-info.service';
 
 @Component({
   selector: 'app-eligibility-step',
@@ -10,54 +13,103 @@ import { RankService } from '../../shared/rank.service';
 })
 export class EligibilityStepComponent implements OnInit {
   serviceDetailsForm: FormGroup;
-  branches: string[] = [];
-  rankCategories: string[] = [];
-  filteredRanks: string[] = [];
-  serviceTypes: string[] = ['Active', 'Guard', 'Reserve']; // Service types
-  showRankCategory: boolean = false;
+  branches$: Observable<string[]> | undefined;
+  serviceTypes$: Observable<string[]> | undefined;
+  rankCategories$: Observable<string[]> | undefined;
+  ranksAtDischarge$: Observable<string[]> | undefined;
 
   constructor(
+    private eligibilityInfoService: EligibilityInfoService,
     private fb: FormBuilder,
-    private wizardState: GuidedWizardService,
-    private rankService: RankService
+    private store: Store<EligibilityState>
   ) {
     this.serviceDetailsForm = this.fb.group({
-      yearsOfService: [
-        '',
-        [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)],
-      ],
+      yearsOfService: ['', Validators.required],
       branch: ['', Validators.required],
       serviceType: ['', Validators.required],
-      rankCategory: [''],
-      dischargeRank: [''],
+      rankCategory: ['', Validators.required],
+      rankAtDischarge: ['', Validators.required],
     });
-
-    this.branches = this.rankService.getBranches();
-    this.rankCategories = this.rankService.getRankCategories();
   }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.store.dispatch(loadAll());
 
-  onBranchSelect(event: any) {
-    const branch = event.value;
-    this.showRankCategory = this.rankService.hasBranch(branch);
-    this.serviceDetailsForm.get('rankCategory')!.setValue('');
-    this.filteredRanks = [];
-  }
+    this.branches$ = this.store.select(
+      (state) => state.eligibilityInfo?.branches || []
+    );
+    this.serviceTypes$ = this.store.select(
+      (state) => state.eligibilityInfo?.serviceTypes || []
+    );
+    this.rankCategories$ = this.store.select(
+      (state) => state.eligibilityInfo?.rankCategories || []
+    );
 
-  onRankCategorySelect(event: any) {
-    const category = event.value;
-    const branch = this.serviceDetailsForm.get('branch')!.value;
-    if (category && branch) {
-      this.filteredRanks = this.rankService.getRanks(branch, category);
+    if (this.serviceDetailsForm) {
+      this.serviceDetailsForm
+        .get('branch')
+        ?.valueChanges.subscribe((branch) => {
+          this.updateDischargeRanks(branch);
+        });
     }
   }
 
-  moveToNextStep() {
+  updateDischargeRanks(branch: string): void {
+    switch (branch) {
+      case 'Army':
+        this.ranksAtDischarge$ = this.store.select(
+          (state) => state.eligibilityInfo?.armyRanks || []
+        );
+        break;
+      case 'Navy':
+        this.ranksAtDischarge$ = this.store.select(
+          (state) => state.eligibilityInfo?.navyRanks || []
+        );
+        break;
+      case 'Air Force':
+        this.ranksAtDischarge$ = this.store.select(
+          (state) => state.eligibilityInfo?.airForceRanks || []
+        );
+        break;
+      case 'Marines':
+        this.ranksAtDischarge$ = this.store.select(
+          (state) => state.eligibilityInfo?.marineRanks || []
+        );
+        break;
+      case 'CoastGuard':
+        this.ranksAtDischarge$ = this.store.select(
+          (state) => state.eligibilityInfo?.coastGuardRanks || []
+        );
+        break;
+      default:
+        this.ranksAtDischarge$ = of([]);
+        break;
+    }
+  }
+
+  onBranchSelect(event: any): void {
+    const branch = event.value;
+  }
+
+  onServiceTypeSelect(event: any): void {
+    const serviceType = event.value;
+  }
+
+  onRankCategorySelect(event: any): void {
+    const rankCategory = event.value;
+  }
+
+  moveToNextStep(): void {
     if (this.serviceDetailsForm.valid) {
-      this.wizardState.moveToStep(1);
     } else {
       console.error('Form is not valid');
     }
+  }
+
+  testService() {
+    this.eligibilityInfoService.getAll().subscribe(
+      (data) => console.log('Service Data:', data),
+      (error) => console.log('Service Error:', error)
+    );
   }
 }

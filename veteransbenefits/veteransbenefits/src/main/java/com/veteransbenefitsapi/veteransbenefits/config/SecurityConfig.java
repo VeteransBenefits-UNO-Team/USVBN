@@ -1,7 +1,5 @@
 package com.veteransbenefitsapi.veteransbenefits.config;
 
-//Lombok Imports
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,35 +16,31 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthFilter;
-    private final AuthenticationProvider authenticationProvider;
+        private final JwtAuthenticationFilter jwtAuthFilter;
+        private final AuthenticationProvider authenticationProvider;
+        private final PasswordEncoder passwordEncoder;
 
-    private final PasswordEncoder passwordEncoder;
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                http.cors().and().csrf((customizer) -> customizer.disable());
+                http.csrf((customizer) -> customizer.disable());
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                http.sessionManagement((session) -> session
+                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-        http.csrf((customizer) -> customizer.disable());
+                http.authorizeHttpRequests((request) -> request
+                                .requestMatchers(EXPOSED_ENDPOINTS).permitAll()
+                                .anyRequest().authenticated());
 
-        http.sessionManagement((session) -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        );
+                http.authenticationProvider(authenticationProvider)
+                                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
-        http.authorizeHttpRequests((request) -> request
-                .requestMatchers(EXPOSED_ENDPOINTS)
-                .permitAll().anyRequest().authenticated());
+                return http.build();
+        }
 
-        http.authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-
-        return http.build();
-    }
-
-
-
-    //Array of strings containing all exposed endpoints to the API Fill as needed
-    private static final String[] EXPOSED_ENDPOINTS =
-            {
-
-            };
+        // Array of strings containing all exposed endpoints to the API. Fill as needed.
+        private static final String[] EXPOSED_ENDPOINTS = {
+                        "/api/eligibility/**",
+                        // Add other endpoints here
+        };
 }

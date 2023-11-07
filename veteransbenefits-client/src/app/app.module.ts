@@ -20,6 +20,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { eligibilityInfoReducer } from './guided-wizard/shared/eligibility-info.reducer';
+import { EligibilityInfoEffects } from './guided-wizard/shared/eligibility-info.effects';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,6 +51,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatOptionModule,
     FormsModule,
     MatSelectModule,
+    StoreModule.forRoot({ eligibility: eligibilityInfoReducer }),
+    EffectsModule.forRoot([EligibilityInfoEffects]),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
