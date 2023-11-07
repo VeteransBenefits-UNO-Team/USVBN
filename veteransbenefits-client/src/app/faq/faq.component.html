@@ -19,11 +19,20 @@
       </ul>
     </nav>
 
-    <div style="text-align: center; margin-top: 20px;">
-      <input type="text" [(ngModel)]="searchInput" (input)="searchQuestions()" placeholder = "Search..." style="padding: 10px; width: 500px; border: 3px solid #ccc; border-radius: 100px;">
+    <div style="text-align: center; margin-top: 20px">
+      <input
+        type="text"
+        [(ngModel)]="searchInput"
+        (input)="searchQuestions()"
+        placeholder="Search..."
+        style="
+          padding: 10px;
+          width: 500px;
+          border: 3px solid #ccc;
+          border-radius: 100px;
+        "
+      />
     </div>
-
-
 
     <div class="faq-section">
       <button class="faq-question" (click)="toggleAnswer('answer1')">
@@ -58,9 +67,7 @@
           Affairs (The VA) benefits. We may also be able help you with Social
           Security benefits questions.
         </p>
-      </div>      
-
+      </div>
     </div>
-    
   </body>
 </html>
