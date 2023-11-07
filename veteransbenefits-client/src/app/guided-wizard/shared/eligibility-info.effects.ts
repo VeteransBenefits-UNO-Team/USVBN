@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
-import { EligibilityInfoService } from './eligibility-info.service';
+import { StepperValueService } from './stepper-value.service';
 import * as EligibilityInfoActions from './eligibility-info.actions';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class EligibilityInfoEffects {
     this.actions$.pipe(
       ofType(EligibilityInfoActions.loadAll),
       switchMap(() =>
-        this.eligibilityInfoService.getAll().pipe(
+        this.eligibilityInfoService.getAllEligibilityInfo().pipe(
           map((data: any) => EligibilityInfoActions.loadAllSuccess({ data })),
           catchError((error) =>
             of(EligibilityInfoActions.loadAllFailed({ error }))
@@ -22,6 +22,6 @@ export class EligibilityInfoEffects {
 
   constructor(
     private actions$: Actions,
-    private eligibilityInfoService: EligibilityInfoService
+    private eligibilityInfoService: StepperValueService
   ) {}
 }

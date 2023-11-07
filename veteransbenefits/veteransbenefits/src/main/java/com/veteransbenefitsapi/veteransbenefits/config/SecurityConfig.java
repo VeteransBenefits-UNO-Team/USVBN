@@ -40,7 +40,7 @@ public class SecurityConfig {
 
         // Array of strings containing all exposed endpoints to the API. Fill as needed.
         private static final String[] EXPOSED_ENDPOINTS = {
-                        "/api/eligibility/**",
+                        "/api/**",
                         // Add other endpoints here
         };
 }

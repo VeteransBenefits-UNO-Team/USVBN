@@ -20,11 +20,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 import { eligibilityInfoReducer } from './guided-wizard/shared/eligibility-info.reducer';
 import { EligibilityInfoEffects } from './guided-wizard/shared/eligibility-info.effects';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { PersonalInfoStepComponent } from './guided-wizard/steps/personal-info-step/personal-info-step/personal-info-step.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     GuidedWizardComponent,
     EligibilityStepComponent,
+    PersonalInfoStepComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +52,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatExpansionModule,
     MatDatepickerModule,
     MatOptionModule,
-    FormsModule,
     MatSelectModule,
+    MatRadioModule,
+    FormsModule,
     StoreModule.forRoot({ eligibility: eligibilityInfoReducer }),
     EffectsModule.forRoot([EligibilityInfoEffects]),
     HttpClientModule,
