@@ -13,7 +13,7 @@ export class EligibilityInfoService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<EligibilityInfo[]> {
-    return this.http.get<EligibilityInfo[]>(`${this.apiUrl}/all`);
+  getAll(): Observable<EligibilityInfo> {
+    return this.http.get<EligibilityInfo>(`${this.apiUrl}/all`);
   }
 }

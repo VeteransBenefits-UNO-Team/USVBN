@@ -1,27 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { Observable, of, BehaviorSubject } from 'rxjs';
-import { EligibilityState } from '../../shared/eligibility-info.state';
-import { loadAll } from '../../shared/eligibility-info.actions';
+import { Subject, takeUntil } from 'rxjs';
 import { EligibilityInfoService } from '../../shared/eligibility-info.service';
+import { EligibilityInfo } from '../../shared/models/eligibility-info.model';
 
 @Component({
   selector: 'app-eligibility-step',
   templateUrl: './eligibility-step.component.html',
   styleUrls: ['./eligibility-step.component.scss'],
 })
-export class EligibilityStepComponent implements OnInit {
+export class EligibilityStepComponent implements OnInit, OnDestroy {
   serviceDetailsForm: FormGroup;
-  branches$: Observable<string[]> | undefined;
-  serviceTypes$: Observable<string[]> | undefined;
-  rankCategories$: Observable<string[]> | undefined;
-  ranksAtDischarge$: Observable<string[]> | undefined;
+  serviceTypes: string[] = [];
+  branches: string[] = [];
+  rankCategories: string[] = [];
+  airForceRanks: string[][] = [];
+  marineRanks: string[][] = [];
+  coastGuardRanks: string[][] = [];
+  navyRanks: string[][] = [];
+  armyRanks: string[][] = [];
+  ranksAtDischarge: string[] = [];
+  selectedBranch: string = '';
+  selectedRankCategory: string = '';
+
+  private readonly destroy$ = new Subject<void>();
 
   constructor(
     private eligibilityInfoService: EligibilityInfoService,
     private fb: FormBuilder,
-    private store: Store<EligibilityState>
+    private cdr: ChangeDetectorRef
   ) {
     this.serviceDetailsForm = this.fb.group({
       yearsOfService: ['', Validators.required],
@@ -33,62 +40,31 @@ export class EligibilityStepComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadAll());
-
-    this.branches$ = this.store.select(
-      (state) => state.eligibilityInfo?.branches || []
-    );
-    this.serviceTypes$ = this.store.select(
-      (state) => state.eligibilityInfo?.serviceTypes || []
-    );
-    this.rankCategories$ = this.store.select(
-      (state) => state.eligibilityInfo?.rankCategories || []
-    );
-
-    if (this.serviceDetailsForm) {
-      this.serviceDetailsForm
-        .get('branch')
-        ?.valueChanges.subscribe((branch) => {
-          this.updateDischargeRanks(branch);
-        });
-    }
+    this.eligibilityInfoService
+      .getAll()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((eligibilityInfo: EligibilityInfo) => {
+        if (eligibilityInfo) {
+          this.serviceTypes = eligibilityInfo.serviceTypes;
+          this.branches = eligibilityInfo.branches;
+          this.rankCategories = eligibilityInfo.rankCategories;
+          this.airForceRanks = eligibilityInfo.airForceRanks;
+          this.marineRanks = eligibilityInfo.marineRanks;
+          this.coastGuardRanks = eligibilityInfo.coastGuardRanks;
+          this.navyRanks = eligibilityInfo.navyRanks;
+          this.armyRanks = eligibilityInfo.armyRanks;
+        }
+      });
   }
 
-  updateDischargeRanks(branch: string): void {
-    switch (branch) {
-      case 'Army':
-        this.ranksAtDischarge$ = this.store.select(
-          (state) => state.eligibilityInfo?.armyRanks || []
-        );
-        break;
-      case 'Navy':
-        this.ranksAtDischarge$ = this.store.select(
-          (state) => state.eligibilityInfo?.navyRanks || []
-        );
-        break;
-      case 'Air Force':
-        this.ranksAtDischarge$ = this.store.select(
-          (state) => state.eligibilityInfo?.airForceRanks || []
-        );
-        break;
-      case 'Marines':
-        this.ranksAtDischarge$ = this.store.select(
-          (state) => state.eligibilityInfo?.marineRanks || []
-        );
-        break;
-      case 'CoastGuard':
-        this.ranksAtDischarge$ = this.store.select(
-          (state) => state.eligibilityInfo?.coastGuardRanks || []
-        );
-        break;
-      default:
-        this.ranksAtDischarge$ = of([]);
-        break;
-    }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   onBranchSelect(event: any): void {
-    const branch = event.value;
+    this.selectedBranch = event.value;
+    this.updateDischargeRanks(this.selectedBranch, this.selectedRankCategory);
   }
 
   onServiceTypeSelect(event: any): void {
@@ -96,20 +72,54 @@ export class EligibilityStepComponent implements OnInit {
   }
 
   onRankCategorySelect(event: any): void {
-    const rankCategory = event.value;
+    this.selectedRankCategory = event.value;
+    this.updateDischargeRanks(this.selectedBranch, this.selectedRankCategory);
+  }
+
+  onRankAtDischargeSelect(event: any): void {
+    const rankAtDischarge = event.value;
+  }
+
+  updateDischargeRanks(branch: string, rankCategory?: string): void {
+    let ranks: any[] = [];
+
+    switch (branch) {
+      case 'Army':
+        ranks = this.armyRanks;
+        break;
+      case 'Navy':
+        ranks = this.navyRanks;
+        break;
+      case 'Air Force':
+        ranks = this.airForceRanks;
+        break;
+      case 'Marines':
+        ranks = this.marineRanks;
+        break;
+      case 'Coast Guard':
+        ranks = this.coastGuardRanks;
+        break;
+      default:
+        ranks = [];
+        break;
+    }
+
+    // if rank category is selected, filter the ranks accordingly
+    if (rankCategory) {
+      this.ranksAtDischarge = rankCategory === 'Enlisted' ? ranks[0] : ranks[1];
+    }
+
+    // clear the rankAtDischarge field in the form to force a re-selection
+    this.serviceDetailsForm.controls['rankAtDischarge'].setValue('');
+
+    this.cdr.markForCheck();
   }
 
   moveToNextStep(): void {
     if (this.serviceDetailsForm.valid) {
+      // logic to move to next step
     } else {
       console.error('Form is not valid');
     }
-  }
-
-  testService() {
-    this.eligibilityInfoService.getAll().subscribe(
-      (data) => console.log('Service Data:', data),
-      (error) => console.log('Service Error:', error)
-    );
   }
 }
