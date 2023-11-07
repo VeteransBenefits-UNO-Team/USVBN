@@ -6,14 +6,14 @@
     </div>
     <div class="form-content">
       <!-- Years of Service -->
-      <mat-form-field appearance="outline" class="tt-form-field">
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Years of Service</mat-label>
         <input matInput formControlName="yearsOfService" />
         <mat-icon matSuffix>event</mat-icon>
       </mat-form-field>
 
       <!-- Branch -->
-      <mat-form-field appearance="outline" class="tt-form-field">
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Branch</mat-label>
         <mat-select
           formControlName="branch"
@@ -26,7 +26,7 @@
       </mat-form-field>
 
       <!-- Service Type -->
-      <mat-form-field appearance="outline" class="tt-form-field">
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Service Type</mat-label>
         <mat-select
           formControlName="serviceType"
@@ -39,7 +39,7 @@
       </mat-form-field>
 
       <!-- Rank Category -->
-      <mat-form-field appearance="outline" class="tt-form-field">
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Rank Category</mat-label>
         <mat-select
           formControlName="rankCategory"
@@ -55,7 +55,7 @@
       </mat-form-field>
 
       <!-- Discharge Rank -->
-      <mat-form-field appearance="outline" class="tt-form-field">
+      <mat-form-field appearance="outline" class="form-field">
         <mat-label>Rank at Discharge</mat-label>
         <mat-select
           formControlName="rankAtDischarge"
@@ -72,7 +72,7 @@
         type="submit"
         mat-raised-button
         color="primary"
-        class="tt-next-btn"
+        class="next-btn"
         [disabled]="!serviceDetailsForm.valid"
       >
         Next

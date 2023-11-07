@@ -1,8 +1,9 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
-import { EligibilityInfoService } from '../../shared/eligibility-info.service';
+import { StepperValueService } from '../../shared/stepper-value.service';
 import { EligibilityInfo } from '../../shared/models/eligibility-info.model';
+import { GuidedWizardService } from '../../shared/guided-wizard.service';
 
 @Component({
   selector: 'app-eligibility-step',
@@ -11,6 +12,7 @@ import { EligibilityInfo } from '../../shared/models/eligibility-info.model';
 })
 export class EligibilityStepComponent implements OnInit, OnDestroy {
   serviceDetailsForm: FormGroup;
+
   serviceTypes: string[] = [];
   branches: string[] = [];
   rankCategories: string[] = [];
@@ -20,15 +22,17 @@ export class EligibilityStepComponent implements OnInit, OnDestroy {
   navyRanks: string[][] = [];
   armyRanks: string[][] = [];
   ranksAtDischarge: string[] = [];
+
   selectedBranch: string = '';
   selectedRankCategory: string = '';
 
   private readonly destroy$ = new Subject<void>();
 
   constructor(
-    private eligibilityInfoService: EligibilityInfoService,
+    private stepperValueService: StepperValueService,
     private fb: FormBuilder,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private guidedWizardService: GuidedWizardService
   ) {
     this.serviceDetailsForm = this.fb.group({
       yearsOfService: ['', Validators.required],
@@ -40,8 +44,8 @@ export class EligibilityStepComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.eligibilityInfoService
-      .getAll()
+    this.stepperValueService
+      .getAllEligibilityInfo()
       .pipe(takeUntil(this.destroy$))
       .subscribe((eligibilityInfo: EligibilityInfo) => {
         if (eligibilityInfo) {
@@ -117,7 +121,7 @@ export class EligibilityStepComponent implements OnInit, OnDestroy {
 
   moveToNextStep(): void {
     if (this.serviceDetailsForm.valid) {
-      // logic to move to next step
+      this.guidedWizardService.moveToStep(1);
     } else {
       console.error('Form is not valid');
     }
