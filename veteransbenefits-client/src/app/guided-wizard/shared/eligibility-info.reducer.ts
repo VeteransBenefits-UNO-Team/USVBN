@@ -20,6 +20,5 @@ export function eligibilityInfoReducer(
   state: EligibilityState | undefined,
   action: Action
 ) {
-  console.log('eligibilityInfoReducer', state, action);
   return _eligibilityInfoReducer(state, action);
 }

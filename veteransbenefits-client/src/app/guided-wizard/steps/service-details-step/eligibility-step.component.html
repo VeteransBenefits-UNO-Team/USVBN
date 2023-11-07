@@ -19,7 +19,7 @@
           formControlName="branch"
           (selectionChange)="onBranchSelect($event)"
         >
-          <mat-option *ngFor="let branch of branches$ | async" [value]="branch">
+          <mat-option *ngFor="let branch of branches" [value]="branch">
             {{ branch }}
           </mat-option>
         </mat-select>
@@ -32,7 +32,7 @@
           formControlName="serviceType"
           (selectionChange)="onServiceTypeSelect($event)"
         >
-          <mat-option *ngFor="let type of serviceTypes$ | async" [value]="type">
+          <mat-option *ngFor="let type of serviceTypes" [value]="type">
             {{ type }}
           </mat-option>
         </mat-select>
@@ -46,7 +46,7 @@
           (selectionChange)="onRankCategorySelect($event)"
         >
           <mat-option
-            *ngFor="let category of rankCategories$ | async"
+            *ngFor="let category of rankCategories"
             [value]="category"
           >
             {{ category }}
@@ -57,11 +57,11 @@
       <!-- Discharge Rank -->
       <mat-form-field appearance="outline" class="tt-form-field">
         <mat-label>Rank at Discharge</mat-label>
-        <mat-select formControlName="rankAtDischarge">
-          <mat-option
-            *ngFor="let rank of ranksAtDischarge$ | async"
-            [value]="rank"
-          >
+        <mat-select
+          formControlName="rankAtDischarge"
+          (selectionChange)="onRankAtDischargeSelect($event)"
+        >
+          <mat-option *ngFor="let rank of ranksAtDischarge" [value]="rank">
             {{ rank }}
           </mat-option>
         </mat-select>
