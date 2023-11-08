@@ -1,0 +1,7 @@
+.full-width-navbar {
+  position: absolute; /* or use 'absolute' if you want it to be positioned absolutely within a container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures that the navbar stays on top of other content */
+}
