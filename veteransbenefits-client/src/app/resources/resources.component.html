@@ -1,138 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resources Page</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="resources.component.scss" />
-    <script src="resources.component.ts" defer></script>
-    <!-- Placeholder. No script is used on this page.-->
-  </head>
-  <body>
-    <!-- Full width Navigation Bar -->
-    <!-- Must use full-width-navbar css class so the resource containers don't cover the right half of the navbar -->
-    <nav class="full-width-navbar">
-      <ul>
-        <li><a [routerLink]="['/home']">Home</a></li>
-        <li><a [routerLink]="['/faq']">FAQ</a></li>
-        <li><a [routerLink]="['/resources']">Resources</a></li>
-        <li><a [routerLink]="['/guided-wizard']">Questionnaire</a></li>
-        <li><a href="progress.html">Progress</a></li>
-      </ul>
-    </nav>
+<app-navigation-bar></app-navigation-bar>
+<body>
+  <!-- Resources Section -->
+  <div class="container mt-5">
+    <!-- mt-5 is a bootstrap class. m stands for margin, t refers to top (the top margin) 5 represents the size of the margin (out of a 0-5 scale with bootstrap) -->
+    <h2 class="mb-4">Our Resources</h2>
+    <!-- mb-4 is a bootstrap class. m stands for margin, b refers to bottom (the bottom margin) 4 represents the size of the margin (out of a 0-5 scale with bootstrap)-->
 
-    <!-- Resources Section -->
-    <div class="container mt-5">
-      <!-- mt-5 is a bootstrap class. m stands for margin, t refers to top (the top margin) 5 represents the size of the margin (out of a 0-5 scale with bootstrap) -->
-      <h2 class="mb-4">Our Resources</h2>
-      <!-- mb-4 is a bootstrap class. m stands for margin, b refers to bottom (the bottom margin) 4 represents the size of the margin (out of a 0-5 scale with bootstrap)-->
+    <div style="text-align: middle; margin-bottom: 20px">
+      <input
+        type="text"
+        [(ngModel)]="searchInput"
+        (input)="searchResources()"
+        placeholder="Search..."
+        style="
+          padding: 10px;
+          width: 500px;
+          border: 3px solid #ccc;
+          border-radius: 100px;
+        "
+      />
+    </div>
 
-      <div style="text-align: middle; margin-bottom: 20px">
+    <!-- Filter Box Section -->
+    <div class="filter-box">
+      <h3>Filter by Category:</h3>
+      <label>
         <input
-          type="text"
-          [(ngModel)]="searchInput"
-          (input)="searchResources()"
-          placeholder="Search..."
-          style="
-            padding: 10px;
-            width: 500px;
-            border: 3px solid #ccc;
-            border-radius: 100px;
-          "
+          type="radio"
+          [(ngModel)]="selectedCategory"
+          [value]="'Appointment Scueduling'"
         />
-      </div>
+        Appointment Scueduling
+      </label>
+      <label>
+        <input type="radio" [(ngModel)]="selectedCategory" [value]="'Health'" />
+        Health
+      </label>
+      <label>
+        <input type="radio" [(ngModel)]="selectedCategory" [value]="'Misc.'" />
+        Miscellaneous
+      </label>
+      <label>
+        <input
+          type="radio"
+          [(ngModel)]="selectedCategory"
+          [value]="'Death Benefits'"
+        />
+        Death Benefits
+      </label>
+      <label>
+        <input
+          type="radio"
+          [(ngModel)]="selectedCategory"
+          [value]="'Disability Compensation'"
+        />
+        Disability Compensation
+      </label>
+      <button (click)="resetCategories()">Reset</button>
+    </div>
 
-      <!-- Filter Box Section -->
-      <div class="filter-box">
-        <h3>Filter by Category:</h3>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="selectedCategory"
-            [value]="'Appointment Scueduling'"
-          />
-          Appointment Scueduling
-        </label>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="selectedCategory"
-            [value]="'Health'"
-          />
-          Health
-        </label>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="selectedCategory"
-            [value]="'Misc.'"
-          />
-          Miscellaneous
-        </label>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="selectedCategory"
-            [value]="'Death Benefits'"
-          />
-          Death Benefits
-        </label>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="selectedCategory"
-            [value]="'Disability Compensation'"
-          />
-          Disability Compensation
-        </label>
-        <button (click)="resetCategories()">Reset</button>
-      </div>
-
-      <div class="row">
-        <!-- Resource 1 -->
-        <div class="col-md-4 mb-4" *ngFor="let resource of filteredResources">
-          <!-- col-md-4 is a bootstrap class. col sets the class into columns. md chooses medium display page. 4 chooses to use 4/12 columns provided by bootstrap resulting in 3 resources displayed side by side before moving to the next row. -->
-          <div class="card" *ngIf="isCategorySelected(resource.category)">
-            <!-- card is a bootstrap class that acts as a flexble container -->
-            <div class="card-body">
-              <h5 class="card-title">
-                {{ resource.title }}
-              </h5>
-              <p class="category">
-                <span class="category-text">{{ resource.category }}</span>
-              </p>
-              <p class="card-text">
-                {{ resource.description }}
-              </p>
-              <a href="{{ resource.link }}" class="btn btn-primary"
-                >Read More</a
-              >
-              <!-- btn is a bootstrap class for buttons. btn-primary adds in style (solid background, white text, 3D shadow)-->
-            </div>
+    <div class="row">
+      <!-- Resource 1 -->
+      <div class="col-md-4 mb-4" *ngFor="let resource of filteredResources">
+        <!-- col-md-4 is a bootstrap class. col sets the class into columns. md chooses medium display page. 4 chooses to use 4/12 columns provided by bootstrap resulting in 3 resources displayed side by side before moving to the next row. -->
+        <div class="card" *ngIf="isCategorySelected(resource.category)">
+          <!-- card is a bootstrap class that acts as a flexble container -->
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ resource.title }}
+            </h5>
+            <p class="category">
+              <span class="category-text">{{ resource.category }}</span>
+            </p>
+            <p class="card-text">
+              {{ resource.description }}
+            </p>
+            <a href="{{ resource.link }}" class="btn btn-primary">Read More</a>
+            <!-- btn is a bootstrap class for buttons. btn-primary adds in style (solid background, white text, 3D shadow)-->
           </div>
         </div>
       </div>
     </div>
-    <!-- Footer Section -->
-    <footer class="footer mt-auto py-3 bg-light">
-      <!-- mt-auto is a bootstrap class for an auto sized top margin. py-3 is padding, on the y-axis, with a size of 3. bg-light is a ligt gray background color-->
-      <div class="container text-center">
-        <span class="text-muted"
-          >For more help please visit the r/VeteransBenefits subreddit</span
-        >
-        <br />
-        <a href="https://www.reddit.com/r/VeteransBenefits/"
-          >Visit our page on Reddit</a
-        >
-      </div>
-    </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
-</html>
+  </div>
+  <!-- Footer Section -->
+  <footer class="footer mt-auto py-3 bg-light">
+    <!-- mt-auto is a bootstrap class for an auto sized top margin. py-3 is padding, on the y-axis, with a size of 3. bg-light is a ligt gray background color-->
+    <div class="container text-center">
+      <span class="text-muted"
+        >For more help please visit the r/VeteransBenefits subreddit</span
+      >
+      <br />
+      <a href="https://www.reddit.com/r/VeteransBenefits/"
+        >Visit our page on Reddit</a
+      >
+    </div>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
