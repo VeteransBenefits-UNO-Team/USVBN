@@ -1,20 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 500px;
+  max-width: 800px;
   margin: 2em auto;
   padding: 2em;
   border-radius: 10px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1);
   background: #ffffff;
   font-family: "Helvetica Neue", sans-serif;
-}
-
-.cdk-overlay-pane {
-  position: fixed !important;
-  right: 0 !important;
-  left: auto !important;
 }
 
 .step-header {
@@ -33,10 +26,21 @@
 }
 
 .form-content {
-  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
   gap: 1.5em;
+  margin-bottom: 1.5em; // Adds space between rows
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 0.75em); // Adjusts for the gap
 }
 
 .mat-form-field {
@@ -67,7 +71,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 2em 0 0;
+  padding-top: 2em;
 }
 
 .next-btn {
@@ -96,4 +100,14 @@
   color: #a0a0a0;
   box-shadow: none;
   cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-column {
+    width: 100%;
+  }
 }
