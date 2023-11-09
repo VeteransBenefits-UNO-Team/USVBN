@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <nav class="navbar">
+    <nav class="navbar mb-5">
       <ul>
         <li><a [routerLink]="['/home']">Home</a></li>
         <li><a [routerLink]="['/faq']">FAQ</a></li>
@@ -19,10 +19,17 @@
       </ul>
     </nav>
 
+    <div class="container mt-5">
+      <!-- mt-5 is a bootstrap class. m stands for margin, t refers to top (the top margin) 5 represents the size of the margin (out of a 0-5 scale with bootstrap) -->
+      <h2 class="mb-2" style="font-size: 40px; text-align: center; color: #FFFFFF">Facts and Questions (FAQ)</h2>
+    </div>
+
+
     <div style="text-align: center; margin-top: 20px;">
       <input type="text" [(ngModel)]="searchInput" (input)="searchQuestions()" placeholder = "Search..." style="padding: 10px; width: 500px; border: 3px solid #ccc; border-radius: 100px;">
     </div>
 
+   
 
 
     <div class="faq-section">
