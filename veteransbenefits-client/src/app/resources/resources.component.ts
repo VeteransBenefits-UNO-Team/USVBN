@@ -209,7 +209,7 @@ export class ResourcesComponent {
     description: 'From r/VeteransBenefits. An explanation of a program that sets out to help make the transition from the military an easier process.', 
     link: 'https://www.reddit.com/r/VeteransBenefits/wiki/vsoc/' },
     { title: 'Yellow Ribbon Program', category: 'Education & Employment', 
-    description: 'From r/VeteransBenefits. An explanation of the Yellow Ribbon Program, a program that helps cover the increased costs of non-resident tuition.' 
+    description: 'From r/VeteransBenefits. An explanation of the Yellow Ribbon Program, a program that helps cover the increased costs of non-resident tuition.', 
     link: 'https://www.reddit.com/r/VeteransBenefits/wiki/yellow/' },
 
 
