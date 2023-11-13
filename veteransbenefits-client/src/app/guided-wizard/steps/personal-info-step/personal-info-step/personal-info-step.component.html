@@ -1,0 +1,215 @@
+<div class="container">
+  <form [formGroup]="personalInfoForm" (ngSubmit)="moveToNextStep()">
+    <div class="step-header">
+      <h2>Personal Details</h2>
+      <p>
+        We need some basic information about you for our records. Don't worry,
+        it's secure.
+      </p>
+    </div>
+
+    <div class="form-content">
+      <!-- Personal and Contact Information -->
+      <div class="form-row">
+        <div class="form-column">
+          <!-- Full Legal Name -->
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Middle Name</mat-label>
+            <input matInput formControlName="middleName" />
+          </mat-form-field>
+        </div>
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Suffix (e.g., Jr., Sr., III)</mat-label>
+            <input matInput formControlName="suffix" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Date of Birth and Gender -->
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Date of Birth</mat-label>
+            <input
+              matInput
+              formControlName="dateOfBirth"
+              [matDatepicker]="dobPicker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="dobPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #dobPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Gender</mat-label>
+            <mat-select
+              formControlName="gender"
+              (selectionChange)="onGenderSelect($event)"
+            >
+              <mat-option *ngFor="let gender of genders" [value]="gender">
+                {{ gender }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Primary Phone Number</mat-label>
+            <input matInput formControlName="primaryPhone" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Email Address</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+        </div>
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Secondary Phone Number (Optional)</mat-label>
+            <input matInput formControlName="secondaryPhone" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Address Details -->
+      <div class="form-row">
+        <div class="form-column">
+          <!-- Street Address -->
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Street Address</mat-label>
+            <input matInput formControlName="streetAddress" />
+          </mat-form-field>
+          <!-- City -->
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" />
+          </mat-form-field>
+        </div>
+        <div class="form-column">
+          <!-- State and Zip Code -->
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Zip Code</mat-label>
+            <input matInput formControlName="zipCode" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Emergency Contact -->
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Emergency Contact Name</mat-label>
+            <input matInput formControlName="emergencyContactName" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Emergency Contact Phone</mat-label>
+            <input matInput formControlName="emergencyContactPhone" />
+          </mat-form-field>
+        </div>
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Emergency Contact Relationship</mat-label>
+            <input matInput formControlName="emergencyContactRelationship" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Emergency Contact Email (Optional)</mat-label>
+            <input matInput formControlName="emergencyContactEmail" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Other Details -->
+      <div class="form-row">
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Residential Status</mat-label>
+            <mat-select
+              formControlName="residentialStatus"
+              (selectionChange)="onResidentialStatusSelect($event)"
+            >
+              <mat-option
+                *ngFor="let status of residentialStatuses"
+                [value]="status"
+              >
+                {{ status }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Marital Status</mat-label>
+            <mat-select
+              formControlName="maritalStatus"
+              (selectionChange)="onMaritalStatusSelect($event)"
+            >
+              <mat-option
+                *ngFor="let status of maritalStatuses"
+                [value]="status"
+              >
+                {{ status }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-column">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Ethnicity</mat-label>
+            <mat-select
+              formControlName="ethnicity"
+              (selectionChange)="onEthnicitySelect($event)"
+            >
+              <mat-option
+                *ngFor="let ethnicity of ethnicities"
+                [value]="ethnicity"
+              >
+                {{ ethnicity }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Language</mat-label>
+            <mat-select
+              formControlName="language"
+              (selectionChange)="onLanguageSelect($event)"
+            >
+              <mat-option *ngFor="let language of languages" [value]="language">
+                {{ language }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="next-btn"
+        [disabled]="!personalInfoForm.valid"
+      >
+        Save & Continue
+        <mat-icon>arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

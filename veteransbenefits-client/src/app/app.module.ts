@@ -4,9 +4,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 import { FaqComponent } from './faq/faq.component';
 import { ResourcesComponent } from './resources/resources.component';
-import { HomeComponent } from './home/home.component';
 import { routes } from './app-routing.module';
 import { GuidedWizardComponent } from './guided-wizard/guided-wizard.component';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -20,15 +20,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { HttpClientModule } from '@angular/common/http';
+import { PersonalInfoStepComponent } from './guided-wizard/steps/personal-info-step/personal-info-step/personal-info-step.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     FaqComponent,
     ResourcesComponent,
-    HomeComponent,
     GuidedWizardComponent,
     EligibilityStepComponent,
+    PersonalInfoStepComponent,
+    NavigationBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +50,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatExpansionModule,
     MatDatepickerModule,
     MatOptionModule,
-    FormsModule,
     MatSelectModule,
+    MatRadioModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

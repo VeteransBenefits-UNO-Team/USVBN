@@ -1,73 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ Page</title>
-    <link rel="stylesheet" href="faq.component.scss" />
-    <script src="faq.component.ts" defer></script>
-  </head>
+<app-navigation-bar></app-navigation-bar>
+<body>
+  <div style="text-align: center; margin-top: 20px">
+    <input
+      type="text"
+      [(ngModel)]="searchInput"
+      (input)="searchQuestions()"
+      placeholder="Search..."
+      style="
+        padding: 10px;
+        width: 500px;
+        border: 3px solid #ccc;
+        border-radius: 100px;
+      "
+    />
+  </div>
 
-  <body>
-    <nav class="navbar mb-5">
-      <ul>
-        <li><a [routerLink]="['/home']">Home</a></li>
-        <li><a [routerLink]="['/faq']">FAQ</a></li>
-        <li><a [routerLink]="['/resources']">Resources</a></li>
-        <li><a [routerLink]="['/guided-wizard']">Questionnaire</a></li>
-        <li><a href="progress.html">Progress</a></li>
-      </ul>
-    </nav>
-
-    <div class="container mt-5">
-      <!-- mt-5 is a bootstrap class. m stands for margin, t refers to top (the top margin) 5 represents the size of the margin (out of a 0-5 scale with bootstrap) -->
-      <h2 class="mb-2" style="font-size: 40px; text-align: center; color: #FFFFFF">Facts and Questions (FAQ)</h2>
+  <div class="faq-section">
+    <button class="faq-question" (click)="toggleAnswer('answer1')">
+      What is USVBN?
+    </button>
+    <!-- On click calls faqScript to toggle the answer visibile-->
+    <div class="faq-answer" id="answer1">
+      <p>
+        USVBN stands for United States Veterans Benefits. This site is all about
+        America's military veteran and their Department of Veterans Affairs (The
+        VA) benefits. We may also be able help you with Social Security benefits
+        questions.
+      </p>
     </div>
 
-
-    <div style="text-align: center; margin-top: 20px;">
-      <input type="text" [(ngModel)]="searchInput" (input)="searchQuestions()" placeholder = "Search..." style="padding: 10px; width: 500px; border: 3px solid #ccc; border-radius: 100px;">
+    <button class="faq-question" (click)="toggleAnswer('answer2')">
+      How do I start?
+    </button>
+    <div class="faq-answer" id="answer2">
+      <p>In order to get started head over to our questionnaire page.</p>
     </div>
 
-   
-
-
-    <div class="faq-section">
-      <button class="faq-question" (click)="toggleAnswer('answer1')">
-        What is USVBN?
-      </button>
-      <!-- On click calls faqScript to toggle the answer visibile-->
-      <div class="faq-answer" id="answer1">
-        <p>
-          USVBN stands for United States Veterans Benefits. This site is all
-          about America's military veteran and their Department of Veterans
-          Affairs (The VA) benefits. We may also be able help you with Social
-          Security benefits questions.
-        </p>
-      </div>
-
-      <button class="faq-question" (click)="toggleAnswer('answer2')">
-        How do I start?
-      </button>
-      <div class="faq-answer" id="answer2">
-        <p>In order to get started head over to our questionnaire page.</p>
-      </div>
-
-      <!-- Add more questions and answers as needed -->
-      <button class="faq-question" (click)="toggleAnswer('answer3')">
-        TEST?
-      </button>
-      <!-- On click calls faqScript to toggle the answer visibile-->
-      <div class="faq-answer" id="answer3">
-        <p>
-          USVBN stands for United States Veterans Benefits. This site is all
-          about America's military veteran and their Department of Veterans
-          Affairs (The VA) benefits. We may also be able help you with Social
-          Security benefits questions.
-        </p>
-      </div>      
-
+    <!-- Add more questions and answers as needed -->
+    <button class="faq-question" (click)="toggleAnswer('answer3')">
+      TEST?
+    </button>
+    <!-- On click calls faqScript to toggle the answer visibile-->
+    <div class="faq-answer" id="answer3">
+      <p>
+        USVBN stands for United States Veterans Benefits. This site is all about
+        America's military veteran and their Department of Veterans Affairs (The
+        VA) benefits. We may also be able help you with Social Security benefits
+        questions.
+      </p>
     </div>
-    
-  </body>
-</html>
+  </div>
+</body>
