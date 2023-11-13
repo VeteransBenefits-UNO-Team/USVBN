@@ -7,24 +7,17 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="home.component.scss" />
   </head>
-<app-navigation-bar></app-navigation-bar>
-<body>
-  <div class="container mt-5" align="center">
-    <h2 class="mb-4">Our Mission</h2>
-    <h5 class="mb-5">
-      The purpose of this website is to help veterans get the benefits that they
-      deserve after serving our country. Navigating the complex process for
-      applying for aid is difficult and complex, which causes many veterans to
-      get much less than they deserve. We hope to provide a go to service where
-      veterans can find resources, answers to common questions, and engage with
-      their own progress tracker based on their specific situation.
-    </h5>
 
-    <h5 class="mb-1">To get started take our online questionnaire:</h5>
-    <a [routerLink]="['/guided-wizard']"
-      ><p>Click here to start questionnaire</p></a
-    >
-  </div>
+  <body>
+    <nav class="full-width-navbar">
+      <ul>
+        <li><a [routerLink]="['/home']">Home</a></li>
+        <li><a [routerLink]="['/faq']">FAQ</a></li>
+        <li><a [routerLink]="['/resources']">Resources</a></li>
+        <li><a [routerLink]="['/guided-wizard']">Questionnaire</a></li>
+        <li><a href="progress.html">Progress</a></li>
+      </ul>
+    </nav>
 
     <!-- Slideshow Section -->
     <div class="image-slideshow">
@@ -58,21 +51,7 @@
         To get started take our online questionnaire:
       </h5>
       <a [routerLink]="['/guided-wizard']"><p align="center">Click here to start questionnaire</p></a>
-  <br /><br /><br /><br /><br />
-
-  <!-- Footer Section -->
-  <footer class="footer mt-auto py-3 bg-light">
-    <!-- mt-auto is a bootstrap class for an auto sized top margin. py-3 is padding, on the y-axis, with a size of 3. bg-light is a ligt gray background color-->
-    <div class="container text-center">
-      <span class="text-muted"
-        >For more help please visit the r/VeteransBenefits subreddit</span
-      >
-      <br />
-      <a href="https://www.reddit.com/r/VeteransBenefits/"
-        >Visit our page on Reddit</a
-      >
     </div>
-  </footer>
 
     <br /><br /><br /><br /><br />
 
@@ -93,7 +72,3 @@
     <script src="main.ts"></script>
   </body>
 </html>
-  <!-- Bootstrap JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
