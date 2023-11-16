@@ -212,8 +212,6 @@ export class ResourcesComponent {
     description: 'From r/VeteransBenefits. An explanation of the Yellow Ribbon Program, a program that helps cover the increased costs of non-resident tuition.', 
     link: 'https://www.reddit.com/r/VeteransBenefits/wiki/yellow/' },
 
-
-
   ];
   
   // resourceItems: Array<{ title: string, category: string, description: string, link: string }> = [
