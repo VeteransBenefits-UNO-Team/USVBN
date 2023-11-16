@@ -14,10 +14,10 @@ public class RequirementsTest {
     @BeforeEach
     private void setup(){
         sut.setImmigrationStatus("Citizen");
-        sut.setState("Nebraska");
+        sut.setState("NE");
 
         userData = new AllUserData();
-        userData.setState("Nebraska");
+        userData.setResidentialState("NE");
         userData.setImmigrationStatus("Citizen");
     }
 
@@ -34,14 +34,14 @@ public class RequirementsTest {
 
     @Test
     public void test_wrongState(){
-        userData.setState("Colorado");
+        userData.setResidentialState("CO");
         assertFalse(sut.isEligible(userData));
     }
 
     @Test
     public void test_noImmigrationRequirement(){
         sut = new Requirements();
-        sut.setState("Nebraska");
+        sut.setState("NE");
 
         assertTrue(sut.isEligible(userData));
     }
