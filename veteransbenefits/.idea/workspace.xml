@@ -5,17 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae844df-a6e6-44e3-9150-a9b3a6980a31" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/veteransbenefits/src/test/resources/test_forms/NebraskaReservistTuitionCredit.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DB-diagram/db-diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../DB-diagram/db-diagram.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/utils/PdfFiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/utils/PdfFiller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/test/java/com/veteransbenefitsapi/veteransbenefits/utils/PdfFillerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/test/java/com/veteransbenefitsapi/veteransbenefits/utils/PdfFillerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/test/resources/test_forms/ReservistTuitionCredit.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/resources/forms/NebraskaReservistTuitionCredit.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -54,7 +59,7 @@
       <recent name="com.veteransbenefitsapi.veteransbenefits.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PdfFillerTest.test_fillForm">
+  <component name="RunManager" selected="Application.VeteransbenefitsApplication">
     <configuration name="VeteransbenefitsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.veteransbenefitsapi.veteransbenefits.VeteransbenefitsApplication" />
       <module name="veteransbenefits" />
@@ -102,9 +107,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.VeteransbenefitsApplication" />
         <item itemvalue="JUnit.PdfFillerTest.test_fillForm" />
         <item itemvalue="JUnit.PdfFillerTest.test_getAllFields" />
-        <item itemvalue="Application.VeteransbenefitsApplication" />
       </list>
     </recent_temporary>
   </component>

@@ -2,6 +2,8 @@ package com.veteransbenefitsapi.veteransbenefits.config;
 
 
 
+import com.veteransbenefitsapi.veteransbenefits.model.entities.Role;
+import com.veteransbenefitsapi.veteransbenefits.repository.authrepo.IAuthRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,13 +19,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
-    //private final IAccountRepository repository;
+    private final IAuthRepo iAuthRepo;
 
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> {
-            //TODO: Implement UserDetail Service for authentication.
-           return null;
+            var user = iAuthRepo.findUser(username).get();
+
+            user.setRole(Role.USER);// Needed for Spring Security
+
+           return user;
         };
     }
 
