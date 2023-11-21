@@ -21,9 +21,13 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonalInfoStepComponent } from './guided-wizard/steps/personal-info-step/personal-info-step/personal-info-step.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigation-bar.component';
+import { KnowledgeBaseComponent } from './knowledge-base/knowledge-base.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigati
     EligibilityStepComponent,
     PersonalInfoStepComponent,
     NavigationBarComponent,
+    KnowledgeBaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,9 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigati
     MatOptionModule,
     MatSelectModule,
     MatRadioModule,
+    MatTabsModule,
+    MatCardModule,
+    MatTableModule,
     FormsModule,
     HttpClientModule,
   ],
