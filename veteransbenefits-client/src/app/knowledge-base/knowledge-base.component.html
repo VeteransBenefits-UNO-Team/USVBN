@@ -2,82 +2,28 @@
 <div class="flex-container">
   <mat-tab-group animationDuration="500ms">
     <mat-tab label="Featured Articles">
-      <mat-card class="benefits-card">
-        <mat-card-header>
-          <mat-card-title
-            >Federal Benefits List by Combined Ratings</mat-card-title
-          >
-          <mat-card-subtitle
-            >Detailed information on various benefits</mat-card-subtitle
-          >
-        </mat-card-header>
-        <mat-card-content>
-          <div class="percent-sections">
-            <div
-              *ngFor="let percent of percentages"
-              class="percent-category"
-              [class.expanded]="expandedSections[percent]"
-            >
-              <h3 (click)="toggleSectionExpansion(percent)">
-                {{ percent }}% Benefits
-                <span
-                  class="arrow-indicator"
-                  [class.rotated]="expandedSections[percent]"
-                >
-                  &#9662;
-                </span>
-              </h3>
-              <div class="table-container" *ngIf="expandedSections[percent]">
-                <table class="benefits-table">
-                  <thead>
-                    <tr>
-                      <th class="header-cell">Category</th>
-                      <th class="header-cell">Description</th>
-                      <th class="header-cell">Notes</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      *ngFor="let element of benefitsData[percent]"
-                      class="table-row"
-                    >
-                      <td class="cell category">
-                        <mat-icon class="icon">{{
-                          categoryIcons[element.category]
-                        }}</mat-icon>
-                        {{ element.category }}
-                      </td>
-                      <td class="cell">{{ element.description }}</td>
-                      <td class="notes-column cell">{{ element.notes }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
+      <app-featured-articles></app-featured-articles>
     </mat-tab>
     <mat-tab label="Death/Survivor Benefits">
-      <!-- Content for Death/Survivor Benefits -->
+      <!-- <app-death-survivor-benefits></app-death-survivor-benefits> -->
     </mat-tab>
     <mat-tab label="Disability Compensation">
-      <!-- Content for Disability Compensation -->
+      <!-- <app-disability-compensation></app-disability-compensation> -->
     </mat-tab>
     <mat-tab label="Education & Employment">
-      <!-- Content for Education & Employment -->
+      <!-- <app-education-employment></app-education-employment> -->
     </mat-tab>
     <mat-tab label="Health care">
-      <!-- Content for Health care -->
+      <!-- <app-health-care></app-health-care> -->
     </mat-tab>
     <mat-tab label="Housing">
-      <!-- Content for Housing -->
+      <!-- <app-housing></app-housing> -->
     </mat-tab>
     <mat-tab label="Miscellaneous">
-      <!-- Content for Miscellaneous -->
+      <!-- <app-miscellaneous></app-miscellaneous> -->
     </mat-tab>
     <mat-tab label="VA Pension">
-      <!-- Content for VA Pension -->
+      <!-- <app-va-pension></app-va-pension> -->
     </mat-tab>
   </mat-tab-group>
 </div>
