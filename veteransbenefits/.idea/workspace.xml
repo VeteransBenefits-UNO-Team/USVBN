@@ -7,6 +7,7 @@
     <list default="true" id="1ae844df-a6e6-44e3-9150-a9b3a6980a31" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../DB-diagram/db-diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../DB-diagram/db-diagram.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <recent name="com.veteransbenefitsapi.veteransbenefits.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.VeteransbenefitsApplication">
+  <component name="RunManager" selected="JUnit.PdfFillerTest">
     <configuration name="VeteransbenefitsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.veteransbenefitsapi.veteransbenefits.VeteransbenefitsApplication" />
       <module name="veteransbenefits" />
@@ -69,6 +70,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PdfFillerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="veteransbenefits" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.veteransbenefitsapi.veteransbenefits.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.veteransbenefitsapi.veteransbenefits.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.veteransbenefitsapi.veteransbenefits.utils.PdfFillerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,6 +123,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PdfFillerTest" />
         <item itemvalue="Application.VeteransbenefitsApplication" />
         <item itemvalue="JUnit.PdfFillerTest.test_fillForm" />
         <item itemvalue="JUnit.PdfFillerTest.test_getAllFields" />
