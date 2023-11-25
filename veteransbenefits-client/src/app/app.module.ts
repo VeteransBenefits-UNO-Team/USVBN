@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PersonalInfoStepComponent } from './guided-wizard/steps/personal-info-step/personal-info-step/personal-info-step.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigation-bar.component';
 import { KnowledgeBaseComponent } from './knowledge-base/knowledge-base.component';
+import { FeaturedArticlesComponent } from './knowledge-base/featured-articles/featured-articles.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { KnowledgeBaseComponent } from './knowledge-base/knowledge-base.componen
     PersonalInfoStepComponent,
     NavigationBarComponent,
     KnowledgeBaseComponent,
+    FeaturedArticlesComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,9 +10,9 @@
 // Define the palettes for your theme using the Material Design palettes available.
 // We're using more muted, military-inspired colors for this veterans' theme.
 $veteransbenefits-client-primary: mat.define-palette(
-  mat.$green-palette,
+  mat.$blue-palette,
   800
-); // A deep green for primary
+); // A deep blue for primary
 $veteransbenefits-client-accent: mat.define-palette(
   mat.$grey-palette,
   200,

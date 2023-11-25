@@ -1,0 +1,67 @@
+<mat-card class="benefits-card">
+  <mat-card-header>
+    <mat-card-title>Federal Benefits List by Combined Ratings</mat-card-title>
+    <mat-card-subtitle
+      >Detailed information on various benefits</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <div class="percent-sections">
+      <div
+        *ngFor="let percent of percentages"
+        class="percent-category"
+        [class.expanded]="expandedSections[percent]"
+      >
+        <h3 (click)="toggleSectionExpansion(percent)">
+          {{ percent }}% Benefits
+          <span
+            class="arrow-indicator"
+            [class.rotated]="expandedSections[percent]"
+            >&#9662;</span
+          >
+        </h3>
+        <div class="table-container" *ngIf="expandedSections[percent]">
+          <table class="benefits-table">
+            <thead>
+              <tr>
+                <th class="header-cell">Category</th>
+                <th class="header-cell">Description</th>
+                <th class="header-cell">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container
+                *ngFor="let category of groupedBenefitsData[percent] | keyvalue"
+              >
+                <tr class="table-row">
+                  <td class="cell category">
+                    <mat-icon class="icon">{{
+                      categoryIcons[category.key]
+                    }}</mat-icon>
+                    {{ category.key }}
+                  </td>
+                  <td class="cell">
+                    <ul>
+                      <li *ngFor="let entry of category.value">
+                        {{ entry.description }}
+                      </li>
+                    </ul>
+                  </td>
+                  <td class="notes-column cell">
+                    <ul>
+                      <ng-container *ngFor="let entry of category.value">
+                        <li *ngIf="entry.notes">
+                          {{ entry.notes }}
+                        </li>
+                      </ng-container>
+                    </ul>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
