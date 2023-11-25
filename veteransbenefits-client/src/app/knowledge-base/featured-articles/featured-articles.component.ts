@@ -9,7 +9,12 @@ import { BenefitsDataService } from './shared/benefits-data.service';
 export class FeaturedArticlesComponent implements OnInit {
   displayedColumns: string[] = ['category', 'description', 'notes'];
   expandedSections: { [key: number]: boolean } = {};
-  groupedBenefitsData: { [key: number]: { [category: string]: any[] } } = {};
+  groupedBenefitsData: {
+    [key: number]: {
+      overrideTitle?: string;
+      benefits: Array<{ category: string; items: any[] }>;
+    };
+  } = {};
   percentages = this.benefitsDataService.percentages;
   categoryIcons = this.benefitsDataService.categoryIcons;
 
@@ -23,8 +28,21 @@ export class FeaturedArticlesComponent implements OnInit {
   }
 
   groupBenefitsData(percent: number): void {
-    const benefits = this.benefitsDataService.benefitsData[percent] || [];
-    this.groupedBenefitsData[percent] = benefits.reduce((acc, item) => {
+    const benefitsEntry = this.benefitsDataService.benefitsData[percent];
+
+    // Convert the object returned by groupCategories to an array
+    const categoriesArray = Object.entries(
+      this.groupCategories(benefitsEntry.benefits)
+    ).map(([category, items]) => ({ category, items }));
+
+    this.groupedBenefitsData[percent] = {
+      overrideTitle: benefitsEntry.overrideTitle,
+      benefits: categoriesArray,
+    };
+  }
+
+  private groupCategories(benefits: any[]): { [category: string]: any[] } {
+    return benefits.reduce((acc, item) => {
       (acc[item.category] = acc[item.category] || []).push(item);
       return acc;
     }, {});

@@ -29,6 +29,7 @@ import { PersonalInfoStepComponent } from './guided-wizard/steps/personal-info-s
 import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigation-bar.component';
 import { KnowledgeBaseComponent } from './knowledge-base/knowledge-base.component';
 import { FeaturedArticlesComponent } from './knowledge-base/featured-articles/featured-articles.component';
+import { MarkdownPipe } from './knowledge-base/featured-articles/shared/markdown.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FeaturedArticlesComponent } from './knowledge-base/featured-articles/fe
     NavigationBarComponent,
     KnowledgeBaseComponent,
     FeaturedArticlesComponent,
+    MarkdownPipe,
   ],
   imports: [
     BrowserModule,
