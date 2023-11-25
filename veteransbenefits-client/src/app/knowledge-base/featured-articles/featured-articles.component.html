@@ -13,7 +13,9 @@
         [class.expanded]="expandedSections[percent]"
       >
         <h3 (click)="toggleSectionExpansion(percent)">
-          {{ percent }}% Benefits
+          {{
+            groupedBenefitsData[percent].overrideTitle || percent + "% Benefits"
+          }}
           <span
             class="arrow-indicator"
             [class.rotated]="expandedSections[percent]"
@@ -31,26 +33,36 @@
             </thead>
             <tbody>
               <ng-container
-                *ngFor="let category of groupedBenefitsData[percent] | keyvalue"
+                *ngFor="
+                  let categoryEntry of groupedBenefitsData[percent].benefits
+                "
               >
                 <tr class="table-row">
                   <td class="cell category">
                     <mat-icon class="icon">{{
-                      categoryIcons[category.key]
+                      categoryIcons[categoryEntry.category]
                     }}</mat-icon>
-                    {{ category.key }}
+                    {{ categoryEntry.category }}
                   </td>
                   <td class="cell">
                     <ul>
-                      <li *ngFor="let entry of category.value">
-                        {{ entry.description }}
-                      </li>
+                      <ng-container *ngFor="let entry of categoryEntry.items">
+                        <li
+                          *ngIf="entry.description"
+                          [innerHTML]="entry.description | markdown"
+                        >
+                          {{ entry.description }}
+                        </li>
+                      </ng-container>
                     </ul>
                   </td>
                   <td class="notes-column cell">
                     <ul>
-                      <ng-container *ngFor="let entry of category.value">
-                        <li *ngIf="entry.notes">
+                      <ng-container *ngFor="let entry of categoryEntry.items">
+                        <li
+                          *ngIf="entry.notes"
+                          [innerHTML]="entry.notes | markdown"
+                        >
                           {{ entry.notes }}
                         </li>
                       </ng-container>
