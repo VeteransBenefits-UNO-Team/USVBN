@@ -30,8 +30,8 @@ public class PdfFillerTest {
 
     @BeforeEach
     public void setup(){
-        form.setPath("src/test/resources/test_forms/NebraskaReservistTuitionCredit.pdf");
-        form.setName("NebraskaReservistTuitionCredit.pdf");
+        form.setPath("src/test/resources/test_forms/Nebraska_Reservist_Tuition_Credit.pdf");
+        form.setName("Nebraska_Reservist_Tuition_Credit.pdf");
         File file = new File(form.getPath());
 
         try {
