@@ -3,9 +3,13 @@ body {
 }
 
 .faq-answer {
-    display: none;
-  }
+  display: block;  /* Ensure the answer text is displayed as a block element */
+  margin-top: 10px; /* Adjust the top margin as needed */
+  /* Add any other styles as needed */
+}
+
   
   .custom-text {
     color: white; /* Your desired color here */
   }
+

@@ -15,6 +15,7 @@ export class ResourcesComponent {
   //Known issues: 
   //1. Trying to break up the description into multiple lines to look better causes error
   //Ideally, we would like to transfer this information to a table so that entries can much more easily be added and removed
+  //Not sure if we will have enough time to accomplish this though unfortunately 
   resources: Array<{ title: string, category: string, description: string, link: string }> = [
     { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scheduling', 
     description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
@@ -211,24 +212,61 @@ export class ResourcesComponent {
     { title: 'Yellow Ribbon Program', category: 'Education & Employment', 
     description: 'From r/VeteransBenefits. An explanation of the Yellow Ribbon Program, a program that helps cover the increased costs of non-resident tuition.', 
     link: 'https://www.reddit.com/r/VeteransBenefits/wiki/yellow/' },
+    { title: 'Civilian Health and Medical Program of the Department of Veterans Affairs (CHAMPVA)', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. A comprehensive health care program in which the VA shares the cost of covered health care services and supplies with eligible beneficiaries. Requires applicant to fill out VA 10-10d and VA 10-7959C.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/champva/' },
+    { title: 'Chapter 17 (Dishonorable Health Care)', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Covers possible benefits for veterans even if their service was deemed dishonorable.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/c17/' },
+    { title: 'Community Care (Emergency and Urgent Care)', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Info for those Veterans who are unable to reasonably receive care at their local VA run medical facility.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/commcare/' },
+    { title: 'Cross Talk - When the VBA and VHA Communicate', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Scenarios in which two seperate branches of the department of Veterans Affairs the Veterans Benefits Administration (VBA) and the Veterans Health Administration (VHA) might need to communicate.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/xtalk/' },
+    { title: 'Dental Care', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. All information involving dental care services provided by the VA, free or paid, as well as eligibility for free dental services.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/dental/' },
+    { title: 'Elderly & Long Term Care', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Programs designed to help the Veteran at their own home, home of their caretaker, residential, or nursing home facility.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/elderlt/' },
+    { title: 'Foreign Medical Program', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Health care programs or services offered to veterans living or traveling in a foreign country.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/fmp/' },
+    { title: 'Hearing', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Information about services offered to help with Veteran\'s hearing with VHA Audiology, a part of the VA\'s Rehabilitation and Prosthetic Services organization.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/hearing/' },
+    { title: 'Registries', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Registries are an important tool used by medical researchers to identify disease trends in Veterans that share certain exposure events. This page discusses how to join registeries and how they can be used to help all veterans.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/registry/' },
+    { title: 'Service Dogs', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. All information related to service dogs. Service dogs or guide dogs can be prescribed for a disabled veteran under 38 CFR 17.148 for the purpose of the Veteran being diagnosed as having a visual, hearing, or substantial mobility impairment.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/service/' },
+    { title: 'TRICARE', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. A health insurance provider that can provide coverage for service-members and their families as well as certain Veterans and their families.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/tricare/' },  
+    { title: 'U.S. Army Chemical or Biological Research Program Participants', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. This program allows certain Veterans who participated in Army Chemical or Biological Research Programs to get health care for conditions that developed directly due to their participation in these research programs.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/guineapig/' }, 
+    { title: 'VA HEALTH CARE (Care At VA Run Facilities)', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. A complete guide to obtaining VA Healthcare.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/healthcare/' }, 
+    { title: 'Vet Centers', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Discusses Vet Centers, a place made to provide counseling and help to service members, Veterans and their families, focusing more on community care than other VA services.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/vetcenter/' }, 
+    { title: 'Veteran Health Identification Card (VHIC)', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. How to obtain a VHIC and how it is used.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/vhic/' }, 
+    { title: 'Vision Care', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. Information related to obtaining vision care by the VA, discussing eligibility for any and all services offered.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/vision/' }, 
+    { title: 'Weight-loss Program (MOVE!)', category: 'Health Care', 
+    description: 'From r/VeteransBenefits. A weight loss program for veterans that works to encourage healthy eating behaviors, increase physical activity, promote even small weight losses.', 
+    link: 'https://www.reddit.com/r/VeteransBenefits/wiki/move/' }, 
+
 
   ];
   
-  // resourceItems: Array<{ title: string, category: string, description: string, link: string }> = [
-  //   { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
-  //   description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
-  //   link: 'https://va.my.site.com/VAVERA/s/' },
-  //   { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
-  //   description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
-  //   link: 'https://va.my.site.com/VAVERA/s/' },
-  //   { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
-  //   description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
-  //   link: 'https://va.my.site.com/VAVERA/s/' },
-  //   { title: 'VA Regional Office (VERA) appointment scheduler', category: 'Appointment Scueduling', 
-  //   description: 'This site is for scheduling one-on-one appointments with a VA regional office.', 
-  //   link: 'https://va.my.site.com/VAVERA/s/' },
-  //   // Add more resource items with the required properties
-  // ];
 
   filteredResources: any[] = this.resources;
   resource: any; // Declare the resource property
@@ -249,15 +287,18 @@ export class ResourcesComponent {
     });
   }
 
+  //Updates the resources in the array based on the currently selected and searched categories
   updateFilteredResources() {
     this.filteredResources = this.filterResources();
   }
 
+  //Function used for the reset button to clear all filter categories
   resetCategories() {
     this.selectedCategory = '';
     this.updateFilteredResources();
   }
 
+  //Search method to find if a resource is available from the search bar
   searchResources() {
     console.log(this.searchInput.toLowerCase());
     const searchTerm = this.searchInput.toLowerCase();
@@ -271,6 +312,7 @@ export class ResourcesComponent {
     this.updateFilteredResources();
   }
 
+  //Getter method used to determine if a given category is selected
   isCategorySelected(category: string) {
     return this.selectedCategory.includes(category) || this.selectedCategory.length === 0;
   }

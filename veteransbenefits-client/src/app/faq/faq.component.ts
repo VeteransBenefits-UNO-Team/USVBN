@@ -16,6 +16,7 @@ export class FaqComponent {
       answer: 'USVBN stands for United States Veterans Benefits. This site is all about America\'s military veteran and their Department of Veterans Affairs (The VA) benefits. We may also be able to help you with Social Security benefit questions.'},
     { id: '1', question: 'Where should I start?', 
       answer: 'If you\'re new to the website, we highly recommend starting with our questionnaire to help give you an idea of what forms and documents might be helpful for you. If you have specific questions or items you\'re looking for, we suggest looking in the FAQ category and resources page'},
+    
   ];   
 
   filteredQuestions: any[] = this.questions;
