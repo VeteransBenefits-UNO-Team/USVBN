@@ -58,6 +58,11 @@ public class Form {
     }
 
 
+    /**
+     *
+     * @param name Name of the form to be created
+     * @return Form object of the newly created form, new forms should be placed in the resources/forms directory
+     */
     private Form createForm(String name){
         Form form = new Form();
         form.setName(name);
@@ -65,6 +70,10 @@ public class Form {
         return form;
     }
 
+    /**
+     *
+     * @return Hardcoded form object of this specific form, with the specific requirements for this form
+     */
     private Form NebraskaReservistTuition(){
         Requirements req = new Requirements();
         req.setImmigrationStatus("Citizen");
