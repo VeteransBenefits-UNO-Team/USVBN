@@ -35,7 +35,7 @@ public class AllUserData {
     /**
      * State of current residency
      */
-    private String state;
+    private String residentialState;
 
     /**
      * User's immigration status
@@ -56,6 +56,21 @@ public class AllUserData {
      * User's email address
      */
     private String email;
+
+    /**
+     * User's residential address
+     */
+    private String residentialAddress;
+
+    /**
+     * User's residential city
+     */
+    private String residentialCity;
+
+    /**
+     * User's residential zipcode
+     */
+    private String residentialZip;
 
 
     /**
@@ -80,6 +95,18 @@ public class AllUserData {
                 
             case "Branch":
                 return this.branch;
+
+            case "resState":
+                return this.residentialState;
+
+            case "resAddress":
+                return this.residentialAddress;
+
+            case "resCity":
+                return this.residentialCity;
+
+            case "resZip":
+                return this.residentialZip;
 
             default:
                 return null;

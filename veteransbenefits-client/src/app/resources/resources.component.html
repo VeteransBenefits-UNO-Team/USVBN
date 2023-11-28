@@ -56,6 +56,14 @@
         />
         Disability Compensation
       </label>
+      <label>
+        <input
+          type="radio"
+          [(ngModel)]="selectedCategory"
+          [value]="'Education & Employment'"
+        />
+        Education & Employment
+      </label>
       <button (click)="resetCategories()">Reset</button>
     </div>
 

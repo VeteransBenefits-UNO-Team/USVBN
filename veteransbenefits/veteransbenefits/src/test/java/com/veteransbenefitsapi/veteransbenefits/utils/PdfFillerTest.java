@@ -31,6 +31,7 @@ public class PdfFillerTest {
     @BeforeEach
     public void setup(){
         form.setPath("src/test/resources/test_forms/NebraskaReservistTuitionCredit.pdf");
+        form.setName("NebraskaReservistTuitionCredit.pdf");
         File file = new File(form.getPath());
 
         try {
@@ -43,6 +44,11 @@ public class PdfFillerTest {
         testUser.setFirstName("Trevin");
         testUser.setLastName("Kotinek");
         testUser.setEmail("tkotinek@unomaha.edu");
+        testUser.setResidentialState("NE");
+        testUser.setImmigrationStatus("Citizen");
+        testUser.setResidentialAddress("111 1st St.");
+        testUser.setResidentialCity("Omaha");
+        testUser.setResidentialZip("61234");
     }
 
     @Test
@@ -66,9 +72,9 @@ public class PdfFillerTest {
 
     @Test
     public void test_skipIneligibleForm(){
-        testUser.setState("Colorado");
+        testUser.setResidentialState("CO");
         Requirements requirements = new Requirements();
-        requirements.setState("Nebraska");
+        requirements.setState("NE");
         form.setRequirements(requirements);
 
         assertNull(sut.fillForm(form, testUser));
@@ -76,10 +82,8 @@ public class PdfFillerTest {
 
     @Test
     public void test_fillEligibileForm(){
-        testUser.setState("Nebraska");
-        testUser.setImmigrationStatus("Citizen");
         Requirements requirements = new Requirements();
-        requirements.setState("Nebraska");
+        requirements.setState("NE");
         requirements.setImmigrationStatus("Citizen");
         form.setRequirements(requirements);
 
