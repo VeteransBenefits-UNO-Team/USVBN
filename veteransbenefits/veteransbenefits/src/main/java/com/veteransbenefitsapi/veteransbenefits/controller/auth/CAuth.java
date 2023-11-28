@@ -3,6 +3,7 @@ package com.veteransbenefitsapi.veteransbenefits.controller.auth;
 import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.ResponseAuth;
+import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.questionaire.ServiceDetailsAnswers;
 import com.veteransbenefitsapi.veteransbenefits.service.authservice.SAuth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -74,10 +75,10 @@ public class CAuth
      *
      * */
     @PostMapping("save/servdetails")
-    public ResponseEntity<Boolean> saveServDetails(@RequestBody ServiceDetails serviceDetails)
+    public ResponseEntity<Boolean> saveServDetails(@RequestBody ServiceDetailsAnswers serviceDetailsAnswers)
     {
-        System.out.println(serviceDetails.getID() + ": ID");
-        return sAuth.saveServDetails(serviceDetails);
+        System.out.println(serviceDetailsAnswers.getID() + ": ID");
+        return sAuth.saveServDetails(serviceDetailsAnswers);
     }
 
     /**
@@ -93,8 +94,8 @@ public class CAuth
      *
      * */
     @GetMapping("load/servdetails/{id}")
-    public ResponseEntity<Boolean> loadServDetails(@PathVariable String id)
+    public ResponseEntity<ServiceDetails> loadServDetails(@PathVariable String id)
     {
-        return null;
+        return sAuth.loadServDetails(id);
     }
 }

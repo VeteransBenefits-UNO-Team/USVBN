@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae844df-a6e6-44e3-9150-a9b3a6980a31" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/repository/authrepo/IServiceDetailsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/requestmodels/questionaire/ServiceDetailsAnswers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/controller/auth/CAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/controller/auth/CAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/entities/ServiceDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/entities/ServiceDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/service/authservice/IAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/service/authservice/IAuth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/service/authservice/SAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/service/authservice/SAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

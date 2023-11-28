@@ -4,6 +4,7 @@ import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.entities.Users;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.ResponseAuth;
+import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.questionaire.ServiceDetailsAnswers;
 import com.veteransbenefitsapi.veteransbenefits.repository.authrepo.IAuthRepo;
 import com.veteransbenefitsapi.veteransbenefits.repository.authrepo.IServiceDetailsRepo;
 import com.veteransbenefitsapi.veteransbenefits.service.JwtService;
@@ -116,7 +117,7 @@ public class SAuth implements IAuth
     }
 
     /**
-     * @param serviceDetails answers to thw Service Detail questions
+     * @param serviceDetailsAnswers answers to thw Service Detail questions
      * @return ResposeEntity
      * <p>
      * Return values
@@ -125,15 +126,24 @@ public class SAuth implements IAuth
      * BAD_REQUEST 400; false: otherwise
      */
     @Override
-    public ResponseEntity<Boolean> saveServDetails(ServiceDetails serviceDetails)
+    public ResponseEntity<Boolean> saveServDetails(ServiceDetailsAnswers serviceDetailsAnswers)
     {
         ResponseEntity<Boolean> responseEntity;
 
         try
         {
-            System.out.println(serviceDetails.getID() + ": ID");
-            System.out.println(serviceDetails.getBranch() + ": Branch");
-            iServiceDetailsRepo.save(serviceDetails);
+            System.out.println(serviceDetailsAnswers.getID() + ": ID");
+            System.out.println(serviceDetailsAnswers.getBranch() + ": Branch");
+
+            var answers = ServiceDetails.builder()
+                            .ID(serviceDetailsAnswers.getID())
+                            .yearsOfService(serviceDetailsAnswers.getYearsOfService())
+                            .branch(serviceDetailsAnswers.getBranch())
+                            .serviceType(serviceDetailsAnswers.getServiceType())
+                            .rankCategory(serviceDetailsAnswers.getRankCategory())
+                            .rankAtDischarge(serviceDetailsAnswers.getRankAtDischarge()).build();
+
+            iServiceDetailsRepo.save(answers);
 
             responseEntity = new ResponseEntity<>(true, HttpStatus.OK);
         }
@@ -171,6 +181,6 @@ public class SAuth implements IAuth
             responseEntity = new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
 
-        return null;
+        return responseEntity;
     }
 }

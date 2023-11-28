@@ -4,6 +4,7 @@ package com.veteransbenefitsapi.veteransbenefits.service.authservice;
 import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.ResponseAuth;
+import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.questionaire.ServiceDetailsAnswers;
 import org.springframework.http.ResponseEntity;
 
 /**
@@ -36,7 +37,7 @@ public interface IAuth
     ResponseEntity<ResponseAuth> signUp(RequestAuth requestAuth);
 
     /**
-     * @param serviceDetails answers to thw Service Detail questions
+     * @param serviceDetailsAnswers answers to thw Service Detail questions
      * @return ResposeEntity
      *
      * Return values
@@ -45,7 +46,7 @@ public interface IAuth
      * BAD_REQUEST 400; false: otherwise
      *
      * */
-    ResponseEntity<Boolean> saveServDetails(ServiceDetails serviceDetails);
+    ResponseEntity<Boolean> saveServDetails(ServiceDetailsAnswers serviceDetailsAnswers);
 
     /**
      * @param id releted to the answers to be retrieved
