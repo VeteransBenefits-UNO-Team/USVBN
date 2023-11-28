@@ -17,3 +17,8 @@ V3 - Code Milestone 3
 The frontend for our application has made great strides, the questionnaire is nearing completion and most other elements of our frontend are in the polishing stages right now.  We have set up a connection between the front and back ends of our web application and should now be able to send data between each of them.  We are beginning work on the backend of our application including processing the questionnaire results, determining eligibility for forms, autofilling forms with data obtained from the questionnaire, and also storing data on the client side using IndexDB
 
 Release Notes: More polished frontend, connection between front and back ends, and beginning stages of backend processing and client-side storage. 
+
+V4 - Code Milestone 4
+We have decided to use MySQL database tables for external storage instead of IndexDB.  The FAQ page is now functioning as expected, buttons will now display the answers to questions and the search bar is working as we expect it to.  On the backend there are now objects to represent all user data, forms, and form requirements.  The backend also has basic functionality for filling out the fields of a form, saving the updated form, and displaying the URL of the updated form so the result can be viewed.  More progress has been made on the stepper and documentation of the project as well.
+
+Release Notes: Better documentation, FAQ page is functioning properly, basic functionality for filled out and saving forms, and better documentation.

@@ -1,0 +1,39 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+
+  mat-tab-group {
+    font-family: "Open Sans", sans-serif;
+    color: #333;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  mat-tab-header {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #2c2c2c;
+  }
+
+  .mat-tab-label {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #f2f2f2;
+  }
+
+  ::ng-deep .mdc-tab.mdc-tab--active {
+    font-weight: bold;
+    color: #2f5075;
+  }
+
+  .mat-tab-body-content {
+    padding: 20px;
+    background-color: #f7f7f7;
+    color: #1a1a1a;
+  }
+}

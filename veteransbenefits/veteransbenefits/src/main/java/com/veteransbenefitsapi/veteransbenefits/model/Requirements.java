@@ -23,7 +23,7 @@ public class Requirements {
      * @return True is the questionnaire answers match all requirement (Null values return true automatically)
      */
     public boolean isEligible(AllUserData userData){
-        return (compareState(userData.getState()) && compareImmigrationStatus(userData.getImmigrationStatus()));
+        return (compareState(userData.getResidentialState()) && compareImmigrationStatus(userData.getImmigrationStatus()));
     }
 
     /**

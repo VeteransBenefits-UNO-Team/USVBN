@@ -26,7 +26,7 @@ public class FormTest {
     @Test
     public void test_isEligible(){
         AllUserData userData = new AllUserData();
-        userData.setState("Nebraska");
+        userData.setResidentialState("Nebraska");
         userData.setImmigrationStatus("Citizen");
 
         assertTrue(sut.determineEligibility(userData));
