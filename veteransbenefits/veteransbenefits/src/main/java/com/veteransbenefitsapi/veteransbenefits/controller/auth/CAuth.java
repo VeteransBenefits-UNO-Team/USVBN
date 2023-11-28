@@ -1,7 +1,9 @@
 package com.veteransbenefitsapi.veteransbenefits.controller.auth;
 
+import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.ResponseAuth;
+import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.questionaire.ServiceDetailsAnswers;
 import com.veteransbenefitsapi.veteransbenefits.service.authservice.SAuth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CAuth
 {
     @Autowired
@@ -51,12 +54,49 @@ public class CAuth
      * Request Post; Receives info needed for user signup
      *
      * Return values:
-     * OK 2021: if signup successful and return a ResponseAuth data
+     * OK 201: if signup successful and return a ResponseAuth data
      * Bad request 400: user not found or bad credentials
      * */
     @PostMapping("signup")
     public ResponseEntity<ResponseAuth> signUp(@RequestBody RequestAuth requestAuth)
     {
         return sAuth.signUp(requestAuth);
+    }
+
+    /**
+     * Close endpoint: JWT needed
+     * url: {server}/api/auth/save/servdetails
+     *
+     * Request POST: Receives answers by the user from the Service Details questions
+     *
+     * Return values
+     * OK 200; true : if the answers were saved correctly on the DB
+     *
+     * BAD_REQUEST 400; false: otherwise
+     *
+     * */
+    @PostMapping("save/servdetails")
+    public ResponseEntity<Boolean> saveServDetails(@RequestBody ServiceDetailsAnswers serviceDetailsAnswers)
+    {
+        System.out.println(serviceDetailsAnswers.getID() + ": ID");
+        return sAuth.saveServDetails(serviceDetailsAnswers);
+    }
+
+    /**
+     * Close endpoint: JWT needed
+     * url: {server}/api/auth/load/servdetails/{id}
+     *
+     * Request POST: Receives answers by the user from the Service Details questions
+     *
+     * Return values
+     * OK 200; ServiceDetails : if answers are saved on the DB
+     *
+     * NOT_FOUND 404; null: otherwise
+     *
+     * */
+    @GetMapping("load/servdetails/{id}")
+    public ResponseEntity<ServiceDetails> loadServDetails(@PathVariable String id)
+    {
+        return sAuth.loadServDetails(id);
     }
 }
