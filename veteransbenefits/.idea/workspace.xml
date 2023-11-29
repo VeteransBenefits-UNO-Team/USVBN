@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="1ae844df-a6e6-44e3-9150-a9b3a6980a31" name="Changes" comment="" />
-  <option name="SHOW_DIALOG" value="false" />
+    <list default="true" id="1ae844df-a6e6-44e3-9150-a9b3a6980a31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_0_33.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_3_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/controller/auth/CAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/controller/auth/CAuth.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />

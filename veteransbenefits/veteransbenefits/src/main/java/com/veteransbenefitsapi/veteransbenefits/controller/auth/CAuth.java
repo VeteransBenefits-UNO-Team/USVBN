@@ -1,6 +1,7 @@
 package com.veteransbenefitsapi.veteransbenefits.controller.auth;
 
 import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
+import com.veteransbenefitsapi.veteransbenefits.model.entities.personaldetails.PersonalDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.ResponseAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.questionaire.ServiceDetailsAnswers;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author Carlos.E
@@ -86,7 +89,7 @@ public class CAuth
      * Close endpoint: JWT needed
      * url: {server}/api/auth/load/servdetails/{id}
      *
-     * Request POST: Receives answers by the user from the Service Details questions
+     * Request GET: to load answers of a given user from the Service Details questions
      *
      * Return values
      * OK 200; ServiceDetails : if answers are saved on the DB
@@ -98,5 +101,23 @@ public class CAuth
     public ResponseEntity<ServiceDetails> loadServDetails(@PathVariable String id)
     {
         return sAuth.loadServDetails(id);
+    }
+
+    /**
+     * Close endpoint: JWT needed
+     * url: {server}/api/auth/submit
+     *
+     * Request GET: Receives answers by the user from the Persona Details questions and merge them with
+     * the service details answers and fill applicable PDF form
+     *
+     * Return values
+     * OK 200; List<String></> : if request went right
+     *
+     * BAD_REQUEST 401; null: otherwise
+     *
+     * */
+    public ResponseEntity<List<String>> submitAndFillPDF(@RequestBody PersonalDetails personalDetails)
+    {
+        return  null;
     }
 }
