@@ -121,6 +121,7 @@ export class EligibilityStepComponent implements OnInit, OnDestroy {
 
   moveToNextStep(): void {
     if (this.serviceDetailsForm.valid) {
+      this.guidedWizardService.setEligibilityData(this.serviceDetailsForm.value)
       this.guidedWizardService.moveToStep(1);
     } else {
       console.error('Form is not valid');

@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
+import { GuidedWizardComponent } from 'src/app/guided-wizard/guided-wizard.component';
 import { GuidedWizardService } from 'src/app/guided-wizard/shared/guided-wizard.service';
 import { PersonalInfo } from 'src/app/guided-wizard/shared/models/personal-info.model';
 import { StepperValueService } from 'src/app/guided-wizard/shared/stepper-value.service';
@@ -25,7 +26,8 @@ export class PersonalInfoStepComponent implements OnInit, OnDestroy {
   constructor(
     private stepperValueService: StepperValueService,
     private formBuilder: FormBuilder,
-    private guidedWizardService: GuidedWizardService
+    private guidedWizardService: GuidedWizardService,
+    private guidedWizardComponenet: GuidedWizardComponent
   ) {
     this.personalInfoForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -100,5 +102,10 @@ export class PersonalInfoStepComponent implements OnInit, OnDestroy {
     } else {
       console.error('Form is not valid');
     }
+  }
+
+  submitForm(): void {
+    this.guidedWizardService.setPersonalInfoData(this.personalInfoForm.value);
+    this.guidedWizardComponenet.submitForm();
   }
 }
