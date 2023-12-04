@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_0_33.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_3_1_4.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/controller/auth/CAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/controller/auth/CAuth.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +60,7 @@
       <recent name="com.veteransbenefitsapi.veteransbenefits.service" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PdfFillerTest">
+  <component name="RunManager" selected="Application.VeteransbenefitsApplication">
     <configuration name="VeteransbenefitsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.veteransbenefitsapi.veteransbenefits.VeteransbenefitsApplication" />
       <module name="veteransbenefits" />
@@ -124,8 +123,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PdfFillerTest" />
         <item itemvalue="Application.VeteransbenefitsApplication" />
+        <item itemvalue="JUnit.PdfFillerTest" />
         <item itemvalue="JUnit.PdfFillerTest.test_fillForm" />
         <item itemvalue="JUnit.PdfFillerTest.test_getAllFields" />
       </list>
