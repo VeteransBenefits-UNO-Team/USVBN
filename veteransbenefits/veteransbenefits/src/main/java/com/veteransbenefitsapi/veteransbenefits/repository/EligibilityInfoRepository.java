@@ -9,7 +9,7 @@ public class EligibilityInfoRepository {
     private final Map<Integer, EligibilityInfo> storage = new HashMap<>();
 
     public EligibilityInfo save(EligibilityInfo info) {
-        storage.put(info.getYears(), info);
+        storage.put(info.getYearsOfService(), info);
         return info;
     }
 

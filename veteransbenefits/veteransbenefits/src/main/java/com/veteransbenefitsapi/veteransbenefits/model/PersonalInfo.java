@@ -7,7 +7,7 @@ public class PersonalInfo {
     /**
      * State of current residency
      */
-    private String residentialState;
+    private String state;
 
     /**
      * User's immigration status
@@ -42,5 +42,80 @@ public class PersonalInfo {
     /**
      * User's residential zipcode
      */
-    private String residentialZip;
+    private String zipCode;
+
+    /**
+     * User's country of residence
+     */
+    private String country;
+
+    /**
+     * User's gender
+     */
+    private String gender;
+
+    /**
+     * User's ethnicity
+     */
+    private String ethnicity;
+
+    /**
+     * User's emergency contact name
+     */
+    private String emergencyContactName;
+
+    /**
+     * User's emergency contact relationship
+     */
+    private String emergencyContactRelationship;
+
+    /**
+     * User's data of birth
+     */
+    private String dateOfBirth;
+
+    /**
+     * User's primary language
+     */
+    private String language;
+
+    /**
+     * User's optional suffix
+     */
+    private String suffix;
+
+    /**
+     * User's primary phone number
+     */
+    private String primaryPhone;
+
+    /**
+     * User's emergency contact's phone number
+     */
+    private String emergencyContactPhone;
+
+    /**
+     * User's emergency contact email
+     */
+    private String emergencyContactEmail;
+
+    /**
+     * User's middle name
+     */
+    private String middleName;
+
+    /**
+     * User's secondary phone number
+     */
+    private String secondaryPhone;
+
+    /**
+     * User's marital status
+     */
+    private String maritalStatus;
+
+    /**
+     * User's residential status
+     */
+    private String residentialStatus;
 }

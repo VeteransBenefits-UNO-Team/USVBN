@@ -7,7 +7,7 @@ public class EligibilityInfo {
     /**
      * Years served
      */
-    private int years;
+    private int yearsOfService;
 
     /**
      * Branch served in
@@ -20,12 +20,17 @@ public class EligibilityInfo {
     private String component;
 
     /**
-     * Rank type
+     * Category of rank
      */
-    private String rankType;
+    private String rankCategory;
 
     /**
      * Rank when discharged
      */
     private String rankAtDischarge;
+
+    /**
+     * Service type
+     */
+    private String serviceType;
 }
