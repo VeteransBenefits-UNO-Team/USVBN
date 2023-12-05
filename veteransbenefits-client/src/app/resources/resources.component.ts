@@ -223,7 +223,6 @@ export class ResourcesComponent {
     { title: 'Veterans\'s Employment and Training Service (VETS)', category: 'Education & Employment', 
     description: 'A resoure provided by the US Department of Labor to help veterans in the workplace.', 
     link: 'https://www.dol.gov/agencies/vets' },
-<<<<<<< Updated upstream
     { title: 'Veteran Readiness and Employment (VR&E)', category: 'Education & Employment', 
     description: 'From r/VeteransBenefits. A VA program that helps Veterans, Servicemembers, and certain eligible dependents attain employment.', 
     link: 'https://www.reddit.com/r/VeteransBenefits/wiki/vre/' },
@@ -285,12 +284,12 @@ export class ResourcesComponent {
     description: 'From r/VeteransBenefits. A weight loss program for veterans that works to encourage healthy eating behaviors, increase physical activity, promote even small weight losses.', 
     link: 'https://www.reddit.com/r/VeteransBenefits/wiki/move/' }, 
 
-=======
+
     { title: 'Veteran Readiness and Employment (Chapter 31)', category: 'Education & Employment', 
     description: 'A program aimed to help veterans explore employment options and address education or training needs in cases where a veteran might have a service-connected disability that limits their ability to work or prevents them from working', 
     link: 'https://www.va.gov/careers-employment/vocational-rehabilitation/' },
     
->>>>>>> Stashed changes
+
 
   ];
   

@@ -28,9 +28,9 @@
         <input
           type="radio"
           [(ngModel)]="selectedCategory"
-          [value]="'Appointment Scueduling'"
+          [value]="'Appointment Scheduling'"
         />
-        Appointment Scueduling
+        Appointment Scheduling
       </label>
       <label>
         <input type="radio" [(ngModel)]="selectedCategory" [value]="'Health'" />
@@ -64,32 +64,33 @@
         />
         Education & Employment
       </label>
-      <button (click)="resetCategories()">Reset</button>
+      <button class = "reset-button" (click)="resetCategories()">Reset</button>
     </div>
 
     <div class="row">
       <!-- Resource 1 -->
-      <div class="col-md-4 mb-4" *ngFor="let resource of filteredResources">
-        <!-- col-md-4 is a bootstrap class. col sets the class into columns. md chooses medium display page. 4 chooses to use 4/12 columns provided by bootstrap resulting in 3 resources displayed side by side before moving to the next row. -->
-        <div class="card" *ngIf="isCategorySelected(resource.category)">
-          <!-- card is a bootstrap class that acts as a flexble container -->
-          <div class="card-body">
-            <h5 class="card-title">
-              {{ resource.title }}
-            </h5>
-            <p class="category">
-              <span class="category-text">{{ resource.category }}</span>
-            </p>
-            <p class="card-text">
-              {{ resource.description }}
-            </p>
-            <a href="{{ resource.link }}" class="btn btn-primary">Read More</a>
-            <!-- btn is a bootstrap class for buttons. btn-primary adds in style (solid background, white text, 3D shadow)-->
+      <ng-container *ngFor="let resource of filteredResources">
+        <div class="col-md-4 mb-4" *ngIf="isCategorySelected(resource.category)">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ resource.title }}
+              </h5>
+              <p class="category">
+                <span class="category-text">{{ resource.category }}</span>
+              </p>
+              <p class="card-text">
+                {{ resource.description }}
+              </p>
+              <a href="{{ resource.link }}" class="btn btn-primary">Read More</a>
+            </div>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
+    
   </div>
+  
   <!-- Footer Section -->
   <footer class="footer mt-auto py-3 bg-light">
     <!-- mt-auto is a bootstrap class for an auto sized top margin. py-3 is padding, on the y-axis, with a size of 3. bg-light is a ligt gray background color-->
