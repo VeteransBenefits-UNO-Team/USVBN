@@ -46,8 +46,8 @@ public class PdfFillerTest {
         testUser.setEmail("tkotinek@unomaha.edu");
         testUser.setResidentialState("NE");
         testUser.setImmigrationStatus("Citizen");
-        testUser.setResidentialAddress("111 1st St.");
-        testUser.setResidentialCity("Omaha");
+        testUser.setStreetAddress("111 1st St.");
+        testUser.setCity("Omaha");
         testUser.setResidentialZip("61234");
     }
 

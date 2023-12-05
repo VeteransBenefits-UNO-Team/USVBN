@@ -60,12 +60,12 @@ public class AllUserData {
     /**
      * User's residential address
      */
-    private String residentialAddress;
+    private String streetAddress;
 
     /**
      * User's residential city
      */
-    private String residentialCity;
+    private String city;
 
     /**
      * User's residential zipcode
@@ -100,10 +100,10 @@ public class AllUserData {
                 return this.residentialState;
 
             case "resAddress":
-                return this.residentialAddress;
+                return this.streetAddress;
 
             case "resCity":
-                return this.residentialCity;
+                return this.city;
 
             case "resZip":
                 return this.residentialZip;
@@ -111,5 +111,25 @@ public class AllUserData {
             default:
                 return null;
         }
+    }
+
+    public AllUserData applyAllData(EligibilityInfo eligibilityInfo, PersonalInfo personalInfo){
+        this.setYears(eligibilityInfo.getYears());
+        this.setBranch(eligibilityInfo.getBranch());
+        this.setComponent(eligibilityInfo.getComponent());
+        this.setRankType(eligibilityInfo.getRankType());
+        this.setRankAtDischarge(eligibilityInfo.getRankAtDischarge());
+
+        this.setResidentialState(personalInfo.getResidentialState());
+        this.setImmigrationStatus(personalInfo.getImmigrationStatus());
+        this.setFirstName(personalInfo.getFirstName());
+        this.setLastName(personalInfo.getLastName());
+        this.setEmail(personalInfo.getEmail());
+        this.setEmail(personalInfo.getEmail());
+        this.setStreetAddress(personalInfo.getStreetAddress());
+        this.setCity(personalInfo.getCity());
+        this.setResidentialZip(personalInfo.getResidentialZip());
+
+        return this;
     }
 }
