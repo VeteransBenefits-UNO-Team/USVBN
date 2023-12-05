@@ -1,19 +1,18 @@
-.benefits-card {
+.panel-container {
   margin: 15px;
-  padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
 }
 
-mat-card-title {
+mat-panel-title {
   color: #2c2c2c;
   font-size: 22px;
   font-weight: bold;
 }
 
-mat-card-subtitle {
+mat-panel-description {
   color: #2c2c2c;
   font-size: 15px;
 }
