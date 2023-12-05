@@ -1,8 +1,10 @@
 package com.veteransbenefitsapi.veteransbenefits.service.authservice;
 
 
+import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.ResponseAuth;
+import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.questionaire.ServiceDetailsAnswers;
 import org.springframework.http.ResponseEntity;
 
 /**
@@ -33,5 +35,29 @@ public interface IAuth
      *
      * */
     ResponseEntity<ResponseAuth> signUp(RequestAuth requestAuth);
+
+    /**
+     * @param serviceDetailsAnswers answers to thw Service Detail questions
+     * @return ResposeEntity
+     *
+     * Return values
+     * OK 200; true : if the answers were saved correctly on the DB
+     *
+     * BAD_REQUEST 400; false: otherwise
+     *
+     * */
+    ResponseEntity<Boolean> saveServDetails(ServiceDetailsAnswers serviceDetailsAnswers);
+
+    /**
+     * @param id releted to the answers to be retrieved
+     * @return ResposeEntity
+     *
+     * Return values
+     *  OK 200; ServiceDetails : if answers are saved on the DB
+     *
+     *  NOT_FOUND 404; null: otherwise
+     *
+     * */
+    ResponseEntity<ServiceDetails> loadServDetails(String id);
 
 }

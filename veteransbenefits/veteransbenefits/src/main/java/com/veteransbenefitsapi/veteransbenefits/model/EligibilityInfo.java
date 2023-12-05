@@ -4,9 +4,33 @@ import lombok.Data;
 
 @Data
 public class EligibilityInfo {
-    private int years;
+    /**
+     * Years served
+     */
+    private int yearsOfService;
+
+    /**
+     * Branch served in
+     */
     private String branch;
+
+    /**
+     * Rank component
+     */
     private String component;
-    private String rankType;
+
+    /**
+     * Category of rank
+     */
+    private String rankCategory;
+
+    /**
+     * Rank when discharged
+     */
     private String rankAtDischarge;
+
+    /**
+     * Service type
+     */
+    private String serviceType;
 }

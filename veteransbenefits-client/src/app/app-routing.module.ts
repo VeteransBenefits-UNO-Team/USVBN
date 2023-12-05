@@ -5,6 +5,7 @@ import { FaqComponent } from './faq/faq.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { GuidedWizardComponent } from './guided-wizard/guided-wizard.component';
 import { KnowledgeBaseComponent } from './knowledge-base/knowledge-base.component';
+import { FilledFormsComponent } from './filled-forms/filled-forms.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'faq', component: FaqComponent },
   { path: 'resources', component: ResourcesComponent },
   { path: 'guided-wizard', component: GuidedWizardComponent },
+  { path: 'filled-forms', component: FilledFormsComponent}
 ];
 
 @NgModule({

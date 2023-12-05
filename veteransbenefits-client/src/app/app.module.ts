@@ -30,6 +30,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar/navigati
 import { KnowledgeBaseComponent } from './knowledge-base/knowledge-base.component';
 import { FeaturedArticlesComponent } from './knowledge-base/featured-articles/featured-articles.component';
 import { MarkdownPipe } from './knowledge-base/featured-articles/shared/markdown.pipe';
+import { FilledFormsComponent } from './filled-forms/filled-forms.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MarkdownPipe } from './knowledge-base/featured-articles/shared/markdown
     KnowledgeBaseComponent,
     FeaturedArticlesComponent,
     MarkdownPipe,
+    FilledFormsComponent,
   ],
   imports: [
     BrowserModule,
