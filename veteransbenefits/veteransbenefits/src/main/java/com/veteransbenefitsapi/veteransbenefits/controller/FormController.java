@@ -21,6 +21,12 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class FormController {
 
+    /**
+     *
+     * @param data The data sent from the front end of the application
+     * @return A list of form objects representing the filled forms
+     * @throws JsonProcessingException
+     */
     @PostMapping("/fill")
     public List<Form> FillForms(@RequestBody String data) throws JsonProcessingException {
         PdfFiller filler = new PdfFiller();
@@ -32,7 +38,6 @@ public class FormController {
         System.out.println("\n\n" + eligibilityData + "\n\n" + personalData);
 
         // TODO: Works To this point, work on mapper
-        // Data in userData.json example in tests
 
         EligibilityInfo eligibilityInfo = new ObjectMapper().readValue(eligibilityData.toString(), EligibilityInfo.class);
         PersonalInfo personalInfo = new ObjectMapper().readValue(personalData.toString(), PersonalInfo.class);

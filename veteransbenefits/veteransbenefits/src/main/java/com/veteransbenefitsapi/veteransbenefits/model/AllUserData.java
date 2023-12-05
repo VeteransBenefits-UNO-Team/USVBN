@@ -113,6 +113,12 @@ public class AllUserData {
         }
     }
 
+    /**
+     *
+     * @param eligibilityInfo An EligibilityInfo object to be mapped into AllUserData
+     * @param personalInfo A PersonalInfo object to be mapped into AllUserData
+     * @return An AllUserData object with a compilation of all eligibility and personal info
+     */
     public AllUserData applyAllData(EligibilityInfo eligibilityInfo, PersonalInfo personalInfo){
         this.setYears(eligibilityInfo.getYears());
         this.setBranch(eligibilityInfo.getBranch());
