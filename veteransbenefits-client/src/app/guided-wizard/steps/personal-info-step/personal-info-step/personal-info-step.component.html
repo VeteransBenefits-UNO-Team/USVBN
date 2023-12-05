@@ -205,7 +205,7 @@
         mat-raised-button
         color="primary"
         class="next-btn"
-        [disabled]="!personalInfoForm.valid"
+        (click)="submitForm()"
       >
         Save & Continue
         <mat-icon>arrow_forward_ios</mat-icon>

@@ -4,7 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FormTest {
@@ -19,7 +21,7 @@ public class FormTest {
 
         sut = new Form();
         sut.setName("Nebraska Reservist Tuition Credit");
-        sut.setPath("src/test/resources/test_forms/NebraskaReservistTuitionCredit.pdf");
+        sut.setPath("src/test/resources/test_forms/Nebraska_Reservist_Tuition_Credit.pdf");
         sut.setRequirements(requirements);
     }
 
@@ -36,5 +38,11 @@ public class FormTest {
     public void test_pathIsValid(){
         File file = new File(sut.getPath());
         assertTrue(file.canRead());
+    }
+
+    @Test
+    public void test_getAllForms(){
+        List<Form> allForms = sut.getAllForms();
+        assertEquals(13, allForms.size());
     }
 }

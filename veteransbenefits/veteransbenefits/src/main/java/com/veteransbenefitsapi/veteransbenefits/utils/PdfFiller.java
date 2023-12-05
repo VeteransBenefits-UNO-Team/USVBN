@@ -21,10 +21,9 @@ public class PdfFiller {
      *
      * @param form The form object to be filled
      * @param userData The compilation of all the users responses to the questionnaire
-     * @return Currently returns the list of fields for testing and visibility purposes, can be reformatted to return something more appropriate
+     * @return Null is there is an error or the user is not eligible, else the updated form
      */
-    public List<PDField> fillForm(Form form, AllUserData userData){
-        //TODO: The user Map should be replaced with whatever implementation of questionnaire results we use (See test also)
+    public Form fillForm(Form form, AllUserData userData){
 
         if(!form.determineEligibility(userData)){
             return null;
@@ -54,10 +53,12 @@ public class PdfFiller {
             Form updatedForm = new Form();
             updatedForm.setPath("src/main/resources/updatedForms/" + form.getName());
 
+            // Print out link to updated form
             File updatedFile = new File(updatedForm.getPath());
-
             System.out.println(updatedFile.toURI().toURL());
-            return allFields;
+
+            // Return the updated form
+            return updatedForm;
         } catch (IOException e){
             e.printStackTrace();
         }
