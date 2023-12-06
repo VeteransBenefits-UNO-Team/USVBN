@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ae844df-a6e6-44e3-9150-a9b3a6980a31" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20231013.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/controller/auth/CAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/controller/auth/CAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/AllUserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/AllUserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/PersonalInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/PersonalInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/entities/personaldetails/PersonalDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/service/authservice/IAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/service/authservice/IAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/EligibilityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/model/EligibilityInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/service/authservice/SAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/veteransbenefits/src/main/java/com/veteransbenefitsapi/veteransbenefits/service/authservice/SAuth.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -1,5 +1,7 @@
 package com.veteransbenefitsapi.veteransbenefits.service.authservice;
 
+import com.veteransbenefitsapi.veteransbenefits.model.AllUserData;
+import com.veteransbenefitsapi.veteransbenefits.model.EligibilityInfo;
 import com.veteransbenefitsapi.veteransbenefits.model.Form;
 import com.veteransbenefitsapi.veteransbenefits.model.PersonalInfo;
 import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
@@ -11,6 +13,7 @@ import com.veteransbenefitsapi.veteransbenefits.repository.authrepo.IAuthRepo;
 import com.veteransbenefitsapi.veteransbenefits.repository.authrepo.IServiceDetailsRepo;
 import com.veteransbenefitsapi.veteransbenefits.service.JwtService;
 import com.veteransbenefitsapi.veteransbenefits.utils.IDGenerator;
+import com.veteransbenefitsapi.veteransbenefits.utils.PdfFiller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -196,6 +200,25 @@ public class SAuth implements IAuth
     @Override
     public ResponseEntity<List<Form>> submit(PersonalInfo personalInfo)
     {
-        return null;
+        List<Form> updatedForm = new ArrayList<>();
+
+        var serviceInfo =  iServiceDetailsRepo.findById(personalInfo.getID()).get();
+        var eligibility = new EligibilityInfo(serviceInfo.getYearsOfService(), serviceInfo.getBranch(),
+                null, serviceInfo.getRankCategory(), serviceInfo.getRankAtDischarge(), serviceInfo.getServiceType());
+
+        var allInfo = new AllUserData().applyAllData(eligibility, personalInfo);
+
+        var forms = new Form().getAllForms();
+
+        var pdfFiller = new PdfFiller();
+
+        for(var form : forms)
+        {
+            updatedForm.add(pdfFiller.fillForm(form, allInfo));
+        }
+
+        ResponseEntity<List<Form>> response = updatedForm.size() > 0 ? new ResponseEntity<>(updatedForm, HttpStatus.OK)
+                : new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        return response;
     }
 }
