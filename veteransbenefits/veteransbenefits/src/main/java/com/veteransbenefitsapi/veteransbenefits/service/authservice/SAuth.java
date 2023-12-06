@@ -1,5 +1,7 @@
 package com.veteransbenefitsapi.veteransbenefits.service.authservice;
 
+import com.veteransbenefitsapi.veteransbenefits.model.Form;
+import com.veteransbenefitsapi.veteransbenefits.model.PersonalInfo;
 import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.entities.Users;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
@@ -18,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -182,5 +185,17 @@ public class SAuth implements IAuth
         }
 
         return responseEntity;
+    }
+
+    /**
+     * @param personalInfo personal info given from the user.
+     * @return A list containing all form populated with info
+     * <p>
+     * Used to marge the personal info with the service info and fill forms.
+     */
+    @Override
+    public ResponseEntity<List<Form>> submit(PersonalInfo personalInfo)
+    {
+        return null;
     }
 }

@@ -1,11 +1,16 @@
 package com.veteransbenefitsapi.veteransbenefits.service.authservice;
 
 
+
+import com.veteransbenefitsapi.veteransbenefits.model.Form;
+import com.veteransbenefitsapi.veteransbenefits.model.PersonalInfo;
 import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.ResponseAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.questionaire.ServiceDetailsAnswers;
 import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 /**
  * @author Carlos.E
@@ -60,4 +65,11 @@ public interface IAuth
      * */
     ResponseEntity<ServiceDetails> loadServDetails(String id);
 
+    /**
+     * @param personalInfo personal info given from the user.
+     * @return A list containing all form populated with info
+     *
+     * Used to marge the personal info with the service info and fill forms.
+     * */
+    ResponseEntity<List<Form>> submit(PersonalInfo personalInfo);
 }

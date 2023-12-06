@@ -1,11 +1,17 @@
 package com.veteransbenefitsapi.veteransbenefits.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * An entity to represent all user responses to the questionnaire, to be updated with all questionnaire response values
  */
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AllUserData {
     /**
      * Years served

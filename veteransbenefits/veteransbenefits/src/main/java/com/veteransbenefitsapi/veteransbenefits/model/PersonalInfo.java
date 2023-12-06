@@ -4,6 +4,9 @@ import lombok.Data;
 
 @Data
 public class PersonalInfo {
+
+    // provided from the frontend to collect related Service info from the DB.
+    private String ID;
     /**
      * State of current residency
      */
