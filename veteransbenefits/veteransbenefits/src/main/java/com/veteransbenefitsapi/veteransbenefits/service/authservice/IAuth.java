@@ -71,5 +71,5 @@ public interface IAuth
      *
      * Used to marge the personal info with the service info and fill forms.
      * */
-    ResponseEntity<List<Form>> submit(PersonalInfo personalInfo);
+    ResponseEntity<List<String>> submit(PersonalInfo personalInfo);
 }

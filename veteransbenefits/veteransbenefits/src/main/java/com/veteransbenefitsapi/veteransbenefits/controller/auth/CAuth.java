@@ -118,7 +118,8 @@ public class CAuth
      * BAD_REQUEST 401; null: otherwise
      *
      * */
-    public ResponseEntity<List<Form>> submitAndFillPDF(@RequestBody PersonalInfo personalInfo)
+    @GetMapping("submit")
+    public ResponseEntity<List<String>> submitAndFillPDF(@RequestBody PersonalInfo personalInfo)
     {
         return  sAuth.submit(personalInfo);
     }

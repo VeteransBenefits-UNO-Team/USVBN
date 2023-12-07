@@ -66,7 +66,7 @@ public class Form {
     private Form createForm(String name){
         Form form = new Form();
         form.setName(name);
-        form.setPath("src/main/resources/forms/" + name);
+        form.setPath("../server_test/forms/" + name);
         return form;
     }
 

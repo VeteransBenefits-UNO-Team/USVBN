@@ -1,8 +1,10 @@
 package com.veteransbenefitsapi.veteransbenefits.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class PersonalInfo {
 
     // provided from the frontend to collect related Service info from the DB.
