@@ -158,7 +158,7 @@ mat-panel-description {
 }
 
 .percent-category.expanded {
-  max-height: none; /* Remove max-height to show all content */
+  max-height: none;
 }
 
 .rating-schedule-header {
@@ -170,9 +170,9 @@ mat-panel-description {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.rating-schedule-header h2 {
-  color: #d9534f; /* A more subdued red */
-  font-size: 1.2rem;
+.rating-schedule-header h3 {
+  color: #d9534f;
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
@@ -183,57 +183,68 @@ mat-panel-description {
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width: 768px) {
-  .rating-schedule-header {
-    margin: 10px;
-    padding: 10px;
-  }
-}
-
 .rating-schedule-content {
   padding: 15px;
   background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-  .content-section {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.card {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-basis: calc(33.333% - 10px);
 
-    h3 {
-      margin-bottom: 10px;
-      color: #0056b3;
-      font-size: 1.2rem;
-    }
+  &.convalescent-rating,
+  &.legal-protections {
+    flex-basis: 100%;
+  }
 
-    p,
-    ul {
-      font-size: 0.9rem;
-      line-height: 1.4;
-      color: #555;
-
-      li {
-        margin-bottom: 5px;
-      }
-    }
-
-    h4 {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      color: #004488;
-    }
+  &.analogous-and-equivalent,
+  &.extra-scheduler,
+  &.faq,
+  &.references {
+    flex-basis: calc(50% - 10px);
   }
 }
 
-// Responsive styling
-@media only screen and (max-width: 768px) {
-  .rating-schedule-content {
-    padding: 10px;
+.content-section h3 {
+  color: #0056b3;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
 
-    .content-section {
-      padding: 10px;
-    }
+.content-section p,
+.content-section ul {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #555;
+
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+.content-section h4 {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #004488;
+}
+
+@media only screen and (max-width: 768px) {
+  .rating-schedule-content,
+  .rating-schedule-header {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 10px;
+    flex-basis: 100%;
   }
 }
 
