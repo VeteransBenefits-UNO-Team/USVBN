@@ -1,19 +1,21 @@
-.benefits-card {
+.panel-container {
   margin: 15px;
-  padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
 }
 
-mat-card-title {
+mat-panel-title {
   color: #2c2c2c;
-  font-size: 22px;
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.5652173913043479rem + 0.6956521739130433vw, 1.4rem);
   font-weight: bold;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-mat-card-subtitle {
+mat-panel-description {
   color: #2c2c2c;
   font-size: 15px;
 }
@@ -156,5 +158,148 @@ mat-card-subtitle {
 }
 
 .percent-category.expanded {
-  max-height: none; /* Remove max-height to show all content */
+  max-height: none;
+}
+
+.rating-schedule-header {
+  margin: 15px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating-schedule-header h3 {
+  color: #d9534f;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.rating-schedule-header p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.rating-schedule-content {
+  padding: 15px;
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-basis: calc(33.333% - 10px);
+
+  &.convalescent-rating,
+  &.legal-protections {
+    flex-basis: 100%;
+  }
+
+  &.analogous-and-equivalent,
+  &.extra-scheduler,
+  &.faq,
+  &.references {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+.content-section h3 {
+  color: #0056b3;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.content-section p,
+.content-section ul {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #555;
+
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+.content-section h4 {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #004488;
+}
+
+@media only screen and (max-width: 768px) {
+  .rating-schedule-content,
+  .rating-schedule-header {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 10px;
+    flex-basis: 100%;
+  }
+}
+
+.protections-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  thead {
+    background-color: #0056b3;
+    color: #fff;
+
+    th {
+      padding: 10px;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #ddd;
+
+    &:nth-child(even) {
+      background-color: #fff;
+    }
+
+    &:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+
+    td {
+      padding: 8px;
+      font-size: 0.8rem;
+      color: #333;
+      text-align: left;
+    }
+  }
+}
+
+.table-footnotes {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  color: #333;
+
+  p {
+    margin-bottom: 5px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
