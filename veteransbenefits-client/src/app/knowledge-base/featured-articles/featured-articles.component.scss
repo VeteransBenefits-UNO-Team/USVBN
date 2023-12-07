@@ -4,6 +4,8 @@
   background-color: #fff;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
 }
 
 mat-panel-title {
@@ -200,7 +202,6 @@ mat-panel-description {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex-basis: calc(33.333% - 10px);
 
-  &.convalescent-rating,
   &.legal-protections {
     flex-basis: 100%;
   }
@@ -210,6 +211,14 @@ mat-panel-description {
   &.faq,
   &.references {
     flex-basis: calc(50% - 10px);
+  }
+
+  &.convalescent-rating {
+    flex-basis: calc(33.333% - 10px);
+  }
+
+  &.major-sections {
+    flex-basis: calc(66.666% - 10px);
   }
 }
 
@@ -248,6 +257,7 @@ mat-panel-description {
   }
 }
 
+.major-sections-table,
 .protections-table {
   width: 100%;
   border-collapse: collapse;
