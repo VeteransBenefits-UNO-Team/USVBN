@@ -2,6 +2,47 @@ body {
   padding-top: 50px;
 }
 
+.filter-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #f8f9fa; /* Light gray background color */
+  border: 1px solid #dee2e6; /* Border color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px; /* Padding around the filter box */
+  margin-bottom: 20px; /* Margin at the bottom of the filter box */
+}
+
+.filter-box label {
+  white-space: nowrap;
+  margin-right: 5px; /* Adjust the spacing between entries */
+}
+
+
+.filter-box h3 {
+  margin-bottom: 10px; /* Margin below the "Filter by Category" heading */
+}
+
+/* Add these styles to your existing CSS or SCSS file */
+
+.reset-button {
+  padding: 3px 20px; /* Adjust padding as needed */
+  background-color: #007bff; /* Your desired background color */
+  color: #fff; /* Text color */
+  border: 1px solid #007bff; /* Border color */
+  border-radius: 5px; /* Border radius */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+
+  /* Optional: Add hover styles for a better interactive experience */
+  &:hover {
+    background-color: #0056b3; /* Adjust the hover background color */
+    color: #fff; /* Adjust the hover text color */
+  }
+}
+
+
+
 .category {
   .category-text {
     font-size: 16px;

@@ -1,7 +1,9 @@
 package com.veteransbenefitsapi.veteransbenefits.controller.auth;
 
+
+import com.veteransbenefitsapi.veteransbenefits.model.Form;
+import com.veteransbenefitsapi.veteransbenefits.model.PersonalInfo;
 import com.veteransbenefitsapi.veteransbenefits.model.entities.ServiceDetails;
-import com.veteransbenefitsapi.veteransbenefits.model.entities.personaldetails.PersonalDetails;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.RequestAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.auth.ResponseAuth;
 import com.veteransbenefitsapi.veteransbenefits.model.requestmodels.questionaire.ServiceDetailsAnswers;
@@ -116,8 +118,8 @@ public class CAuth
      * BAD_REQUEST 401; null: otherwise
      *
      * */
-    public ResponseEntity<List<String>> submitAndFillPDF(@RequestBody PersonalDetails personalDetails)
+    public ResponseEntity<List<Form>> submitAndFillPDF(@RequestBody PersonalInfo personalInfo)
     {
-        return  null;
+        return  sAuth.submit(personalInfo);
     }
 }

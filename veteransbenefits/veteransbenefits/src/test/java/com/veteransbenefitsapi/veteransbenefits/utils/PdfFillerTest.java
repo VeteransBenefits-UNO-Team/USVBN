@@ -30,8 +30,8 @@ public class PdfFillerTest {
 
     @BeforeEach
     public void setup(){
-        form.setPath("src/test/resources/test_forms/NebraskaReservistTuitionCredit.pdf");
-        form.setName("NebraskaReservistTuitionCredit.pdf");
+        form.setPath("src/test/resources/test_forms/Nebraska_Reservist_Tuition_Credit.pdf");
+        form.setName("Nebraska_Reservist_Tuition_Credit.pdf");
         File file = new File(form.getPath());
 
         try {
@@ -46,8 +46,8 @@ public class PdfFillerTest {
         testUser.setEmail("tkotinek@unomaha.edu");
         testUser.setResidentialState("NE");
         testUser.setImmigrationStatus("Citizen");
-        testUser.setResidentialAddress("111 1st St.");
-        testUser.setResidentialCity("Omaha");
+        testUser.setStreetAddress("111 1st St.");
+        testUser.setCity("Omaha");
         testUser.setResidentialZip("61234");
     }
 
@@ -60,14 +60,18 @@ public class PdfFillerTest {
     }
 
     @Test
-    public void test_fillEligibleForm(){
-        List<PDField> result = sut.fillForm(form, testUser);
+    public void test_fillEligibleForm() throws IOException {
+        Form result = sut.fillForm(form, testUser);
 
-        assertFalse(result.isEmpty());
-        assertEquals(38, result.size());
-        assertEquals("tkotinek@unomaha.edu", result.get(0).getValueAsString());
-        assertEquals("Trevin", result.get(4).getValueAsString());
-        assertEquals("Kotinek", result.get(6).getValueAsString());
+        File file = new File(result.getPath());
+        PDDocument resultDocument = Loader.loadPDF(file);
+        List<PDField> resultFields = resultDocument.getDocumentCatalog().getAcroForm().getFields();
+
+        assertFalse(resultFields.isEmpty());
+        assertEquals(38, resultFields.size());
+        assertEquals("tkotinek@unomaha.edu", resultFields.get(0).getValueAsString());
+        assertEquals("Trevin", resultFields.get(4).getValueAsString());
+        assertEquals("Kotinek", resultFields.get(6).getValueAsString());
     }
 
     @Test
@@ -81,17 +85,22 @@ public class PdfFillerTest {
     }
 
     @Test
-    public void test_fillEligibileForm(){
+    public void test_fillEligibileForm() throws IOException {
         Requirements requirements = new Requirements();
         requirements.setState("NE");
         requirements.setImmigrationStatus("Citizen");
         form.setRequirements(requirements);
 
-        List<PDField> result = sut.fillForm(form, testUser);
-        assertFalse(result.isEmpty());
-        assertEquals(38, result.size());
-        assertEquals("tkotinek@unomaha.edu", result.get(0).getValueAsString());
-        assertEquals("Trevin", result.get(4).getValueAsString());
-        assertEquals("Kotinek", result.get(6).getValueAsString());
+        Form result = sut.fillForm(form, testUser);
+
+        File file = new File(result.getPath());
+        PDDocument resultDocument = Loader.loadPDF(file);
+        List<PDField> resultFields = resultDocument.getDocumentCatalog().getAcroForm().getFields();
+
+        assertFalse(resultFields.isEmpty());
+        assertEquals(38, resultFields.size());
+        assertEquals("tkotinek@unomaha.edu", resultFields.get(0).getValueAsString());
+        assertEquals("Trevin", resultFields.get(4).getValueAsString());
+        assertEquals("Kotinek", resultFields.get(6).getValueAsString());
     }
 }
