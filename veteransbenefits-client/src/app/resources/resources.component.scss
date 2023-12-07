@@ -5,48 +5,91 @@ body {
 .filter-box {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
   background-color: #f8f9fa; /* Light gray background color */
   border: 1px solid #dee2e6; /* Border color */
   border-radius: 10px; /* Rounded corners */
   padding: 15px; /* Padding around the filter box */
   margin-bottom: 20px; /* Margin at the bottom of the filter box */
+
+  .label-and-reset {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 10px;
+
+    .reset-button {
+      padding: 3px 20px; /* Adjust padding as needed */
+      background-color: #007bff; /* Your desired background color */
+      color: #fff; /* Text color */
+      border: 1px solid #007bff; /* Border color */
+      border-radius: 5px; /* Border radius */
+      cursor: pointer; /* Show pointer cursor on hover */
+      transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+
+      /* Optional: Add hover styles for a better interactive experience */
+      &:hover {
+        background-color: #0056b3; /* Adjust the hover background color */
+        color: #fff; /* Adjust the hover text color */
+      }
+    }
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
 }
 
 .filter-box label {
   white-space: nowrap;
-  margin-right: 5px; /* Adjust the spacing between entries */
+  margin-right: 5px;
 }
-
 
 .filter-box h3 {
-  margin-bottom: 10px; /* Margin below the "Filter by Category" heading */
+  margin-bottom: 10px;
 }
 
-/* Add these styles to your existing CSS or SCSS file */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
 
-.reset-button {
-  padding: 3px 20px; /* Adjust padding as needed */
-  background-color: #007bff; /* Your desired background color */
-  color: #fff; /* Text color */
-  border: 1px solid #007bff; /* Border color */
-  border-radius: 5px; /* Border radius */
-  cursor: pointer; /* Show pointer cursor on hover */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-
-  /* Optional: Add hover styles for a better interactive experience */
-  &:hover {
-    background-color: #0056b3; /* Adjust the hover background color */
-    color: #fff; /* Adjust the hover text color */
+  .col-md-4 {
+    padding-right: 5px;
+    padding-left: 5px;
   }
-}
 
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
 
-.category {
-  .category-text {
-    font-size: 16px;
-    text-decoration: underline;
-    margin-top: 0px;
+    .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .category {
+      .category-text {
+        font-size: 16px;
+        text-decoration: underline;
+        margin-top: 0;
+      }
+    }
+
+    .read-more {
+      align-self: flex-start;
+    }
   }
 }
