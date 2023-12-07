@@ -23,54 +23,70 @@
 
     <!-- Filter Box Section -->
     <div class="filter-box">
-      <h3>Filter by Category:</h3>
-      <label>
-        <input
-          type="radio"
-          [(ngModel)]="selectedCategory"
-          [value]="'Appointment Scheduling'"
-        />
-        Appointment Scheduling
-      </label>
-      <label>
-        <input type="radio" [(ngModel)]="selectedCategory" [value]="'Health'" />
-        Health
-      </label>
-      <label>
-        <input type="radio" [(ngModel)]="selectedCategory" [value]="'Misc.'" />
-        Miscellaneous
-      </label>
-      <label>
-        <input
-          type="radio"
-          [(ngModel)]="selectedCategory"
-          [value]="'Death Benefits'"
-        />
-        Death Benefits
-      </label>
-      <label>
-        <input
-          type="radio"
-          [(ngModel)]="selectedCategory"
-          [value]="'Disability Compensation'"
-        />
-        Disability Compensation
-      </label>
-      <label>
-        <input
-          type="radio"
-          [(ngModel)]="selectedCategory"
-          [value]="'Education & Employment'"
-        />
-        Education & Employment
-      </label>
-      <button class = "reset-button" (click)="resetCategories()">Reset</button>
+      <div class="label-and-reset">
+        <h3>Filter by Category</h3>
+        <button class="reset-button" (click)="resetCategories()">Reset</button>
+      </div>
+
+      <div class="filters">
+        <label>
+          <input
+            type="radio"
+            [(ngModel)]="selectedCategory"
+            [value]="'Appointment Scheduling'"
+          />
+          Appointment Scheduling
+        </label>
+        <label>
+          <input
+            type="radio"
+            [(ngModel)]="selectedCategory"
+            [value]="'Health'"
+          />
+          Health
+        </label>
+        <label>
+          <input
+            type="radio"
+            [(ngModel)]="selectedCategory"
+            [value]="'Misc.'"
+          />
+          Miscellaneous
+        </label>
+        <label>
+          <input
+            type="radio"
+            [(ngModel)]="selectedCategory"
+            [value]="'Death Benefits'"
+          />
+          Death Benefits
+        </label>
+        <label>
+          <input
+            type="radio"
+            [(ngModel)]="selectedCategory"
+            [value]="'Disability Compensation'"
+          />
+          Disability Compensation
+        </label>
+        <label>
+          <input
+            type="radio"
+            [(ngModel)]="selectedCategory"
+            [value]="'Education & Employment'"
+          />
+          Education & Employment
+        </label>
+      </div>
     </div>
 
-    <div class="row">
+    <div class="cards">
       <!-- Resource 1 -->
       <ng-container *ngFor="let resource of filteredResources">
-        <div class="col-md-4 mb-4" *ngIf="isCategorySelected(resource.category)">
+        <div
+          class="col-md-4 mb-4"
+          *ngIf="isCategorySelected(resource.category)"
+        >
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">
@@ -82,15 +98,16 @@
               <p class="card-text">
                 {{ resource.description }}
               </p>
-              <a href="{{ resource.link }}" class="btn btn-primary">Read More</a>
+              <a href="{{ resource.link }}" class="btn btn-primary read-more"
+                >Read More</a
+              >
             </div>
           </div>
         </div>
       </ng-container>
     </div>
-    
   </div>
-  
+
   <!-- Footer Section -->
   <footer class="footer mt-auto py-3 bg-light">
     <!-- mt-auto is a bootstrap class for an auto sized top margin. py-3 is padding, on the y-axis, with a size of 3. bg-light is a ligt gray background color-->
