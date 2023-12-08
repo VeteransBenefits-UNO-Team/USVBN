@@ -297,6 +297,60 @@
   }
 }
 
+.content-header {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  p,
+  li {
+    font-size: 16px;
+    color: #333;
+  }
+
+  strong {
+    color: #333;
+  }
+
+  em {
+    font-style: italic;
+    color: #333;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    margin-left: 20px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .important {
+    color: #d9534f;
+  }
+}
+
+.income-limits {
+  margin-top: 10px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -326,6 +380,10 @@ table {
 
       &:nth-child(odd) {
         background-color: #f2f2f2;
+      }
+
+      td:first-child {
+        font-weight: bold;
       }
 
       td {

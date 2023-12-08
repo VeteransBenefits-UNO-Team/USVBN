@@ -198,9 +198,9 @@ public class SAuth implements IAuth
      * Used to marge the personal info with the service info and fill forms.
      */
     @Override
-    public ResponseEntity<List<Form>> submit(PersonalInfo personalInfo)
+    public ResponseEntity<List<String>> submit(PersonalInfo personalInfo)
     {
-        List<Form> updatedForm = new ArrayList<>();
+        List<String> updatedForms = new ArrayList<>();
 
         var serviceInfo =  iServiceDetailsRepo.findById(personalInfo.getID()).get();
         var eligibility = new EligibilityInfo(serviceInfo.getYearsOfService(), serviceInfo.getBranch(),
@@ -214,10 +214,12 @@ public class SAuth implements IAuth
 
         for(var form : forms)
         {
-            updatedForm.add(pdfFiller.fillForm(form, allInfo));
+            var updatedForm = pdfFiller.fillForm(form, allInfo);
+            if(updatedForm != null)
+                updatedForms.add(updatedForm.getPath());
         }
 
-        ResponseEntity<List<Form>> response = updatedForm.size() > 0 ? new ResponseEntity<>(updatedForm, HttpStatus.OK)
+        ResponseEntity<List<String>> response = updatedForms.size() > 0 ? new ResponseEntity<>(updatedForms, HttpStatus.OK)
                 : new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         return response;
     }

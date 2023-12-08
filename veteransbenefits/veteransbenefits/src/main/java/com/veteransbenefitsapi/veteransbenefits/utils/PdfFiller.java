@@ -3,12 +3,12 @@ package com.veteransbenefitsapi.veteransbenefits.utils;
 import com.veteransbenefitsapi.veteransbenefits.model.AllUserData;
 import com.veteransbenefitsapi.veteransbenefits.model.Form;
 import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.Collections;
 import java.util.List;
 
@@ -49,9 +49,9 @@ public class PdfFiller {
             Rudimentary way to save new updated documents, prints the file url to console, so you can open the new file
             in a browser.  You can test this by running any PdfFiller tests where the form is actually filled out.
              */
-            pdDocument.save("src/main/resources/updatedForms/" + form.getName());
+            pdDocument.save("../server_test/updatedForms/" + form.getName());
             Form updatedForm = new Form();
-            updatedForm.setPath("src/main/resources/updatedForms/" + form.getName());
+            updatedForm.setPath("../server_test/updatedForms/" + form.getName());
 
             // Print out link to updated form
             File updatedFile = new File(updatedForm.getPath());
