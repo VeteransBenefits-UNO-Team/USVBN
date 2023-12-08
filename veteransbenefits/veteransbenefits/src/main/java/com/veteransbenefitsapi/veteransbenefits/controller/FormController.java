@@ -9,6 +9,8 @@ import com.veteransbenefitsapi.veteransbenefits.model.EligibilityInfo;
 import com.veteransbenefitsapi.veteransbenefits.model.Form;
 import com.veteransbenefitsapi.veteransbenefits.model.PersonalInfo;
 import com.veteransbenefitsapi.veteransbenefits.utils.PdfFiller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.json.*;
 
@@ -28,7 +30,7 @@ public class FormController {
      * @throws JsonProcessingException
      */
     @PostMapping("/fill")
-    public List<Form> FillForms(@RequestBody String data) throws JsonProcessingException {
+    public ResponseEntity<List<String>> FillForms(@RequestBody String data) throws JsonProcessingException {
         PdfFiller filler = new PdfFiller();
         JSONObject jsonObject = new JSONObject(data);
 
@@ -37,8 +39,6 @@ public class FormController {
 
         System.out.println("\n\n" + eligibilityData + "\n\n" + personalData);
 
-        // TODO: Works To this point, work on mapper
-
         EligibilityInfo eligibilityInfo = new ObjectMapper().readValue(eligibilityData.toString(), EligibilityInfo.class);
         PersonalInfo personalInfo = new ObjectMapper().readValue(personalData.toString(), PersonalInfo.class);
 
@@ -46,17 +46,18 @@ public class FormController {
 
 
         List<Form> allForms = new Form().getAllForms();
-        List<Form> results = new ArrayList<>();
+        List<String> results = new ArrayList<>();
 
         for(Form thisForm : allForms){
             Form filledForm = filler.fillForm(thisForm, userData);
             if(filledForm != null){
-                results.add(filledForm);
+                results.add(filledForm.getPath());
             }
         }
 
-        System.out.println("\n\n" + userData);
+        ResponseEntity<List<String>> response = results.size() > 0 ? new ResponseEntity<>(results, HttpStatus.OK)
+                : new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 
-        return results;
+        return response;
     }
 }

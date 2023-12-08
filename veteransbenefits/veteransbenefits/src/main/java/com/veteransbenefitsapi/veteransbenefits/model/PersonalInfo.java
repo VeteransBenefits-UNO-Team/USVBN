@@ -2,9 +2,11 @@ package com.veteransbenefitsapi.veteransbenefits.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class PersonalInfo {
 
     // provided from the frontend to collect related Service info from the DB.

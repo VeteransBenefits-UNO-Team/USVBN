@@ -66,7 +66,7 @@ public class Form {
     private Form createForm(String name){
         Form form = new Form();
         form.setName(name);
-        form.setPath("../server_test/forms/" + name);
+        form.setPath("../../server_test/forms/" + name);
         return form;
     }
 
@@ -76,7 +76,6 @@ public class Form {
      */
     private Form NebraskaReservistTuition(){
         Requirements req = new Requirements();
-        req.setImmigrationStatus("Citizen");
         req.setState("Nebraska");
 
         Form form = createForm("Nebraska_Reservist_Tuition_Credit.pdf");

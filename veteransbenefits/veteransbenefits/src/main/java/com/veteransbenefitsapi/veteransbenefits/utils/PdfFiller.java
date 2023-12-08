@@ -49,9 +49,9 @@ public class PdfFiller {
             Rudimentary way to save new updated documents, prints the file url to console, so you can open the new file
             in a browser.  You can test this by running any PdfFiller tests where the form is actually filled out.
              */
-            pdDocument.save("../server_test/updatedForms/" + form.getName());
+            pdDocument.save("../../veteransbenefits-client/src/pdfs/" + form.getName());
             Form updatedForm = new Form();
-            updatedForm.setPath("../server_test/updatedForms/" + form.getName());
+            updatedForm.setPath("src/pdfs/" + form.getName());
 
             // Print out link to updated form
             File updatedFile = new File(updatedForm.getPath());
