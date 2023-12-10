@@ -24,20 +24,21 @@ public class PdfFillerTest {
     static PDDocument pdDocument;
     static PDAcroForm pdf;
 
-    //TODO: testUser is only a test implementation for what will eventually be questionnaire data
-    //TODO: Should be replaced with actual implementation when it is made
+    // TODO: testUser is only a test implementation for what will eventually be
+    // questionnaire data
+    // TODO: Should be replaced with actual implementation when it is made
     AllUserData testUser = new AllUserData();
 
     @BeforeEach
-    public void setup(){
-        form.setPath("src/test/resources/test_forms/Nebraska_Reservist_Tuition_Credit.pdf");
+    public void setup() {
+        form.setPath("../../forms/Nebraska_Reservist_Tuition_Credit.pdf");
         form.setName("Nebraska_Reservist_Tuition_Credit.pdf");
         File file = new File(form.getPath());
 
         try {
             pdDocument = Loader.loadPDF(file);
             pdf = pdDocument.getDocumentCatalog().getAcroForm();
-        } catch (IOException ignored){
+        } catch (IOException ignored) {
 
         }
 
@@ -69,13 +70,14 @@ public class PdfFillerTest {
 
         assertFalse(resultFields.isEmpty());
         assertEquals(38, resultFields.size());
-        assertEquals("tkotinek@unomaha.edu", resultFields.get(0).getValueAsString());
-        assertEquals("Trevin", resultFields.get(4).getValueAsString());
-        assertEquals("Kotinek", resultFields.get(6).getValueAsString());
+
+        assertEquals("tkotinek@unomaha.edu", resultFields.get(37).getValueAsString());
+        assertEquals("Trevin", resultFields.get(3).getValueAsString());
+        assertEquals("Kotinek", resultFields.get(5).getValueAsString());
     }
 
     @Test
-    public void test_skipIneligibleForm(){
+    public void test_skipIneligibleForm() {
         testUser.setResidentialState("CO");
         Requirements requirements = new Requirements();
         requirements.setState("NE");
@@ -99,8 +101,8 @@ public class PdfFillerTest {
 
         assertFalse(resultFields.isEmpty());
         assertEquals(38, resultFields.size());
-        assertEquals("tkotinek@unomaha.edu", resultFields.get(0).getValueAsString());
-        assertEquals("Trevin", resultFields.get(4).getValueAsString());
-        assertEquals("Kotinek", resultFields.get(6).getValueAsString());
+        assertEquals("tkotinek@unomaha.edu", resultFields.get(37).getValueAsString());
+        assertEquals("Trevin", resultFields.get(3).getValueAsString());
+        assertEquals("Kotinek", resultFields.get(5).getValueAsString());
     }
 }

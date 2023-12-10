@@ -3,12 +3,14 @@ package com.veteransbenefitsapi.veteransbenefits.utils;
 import com.veteransbenefitsapi.veteransbenefits.model.AllUserData;
 import com.veteransbenefitsapi.veteransbenefits.model.Form;
 import org.apache.pdfbox.Loader;
-import org.apache.pdfbox.io.IOUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,48 +20,43 @@ import java.util.List;
 public class PdfFiller {
 
     /**
-     *
-     * @param form The form object to be filled
-     * @param userData The compilation of all the users responses to the questionnaire
-     * @return Null is there is an error or the user is not eligible, else the updated form
+     * Fills a form and saves it as a temporary file.
+     * 
+     * @param form     The form object to be filled
+     * @param userData The compilation of all the user's responses to the
+     *                 questionnaire
+     * @return The updated form with the path of the temporary file, or null in case
+     *         of error or ineligibility.
      */
-    public Form fillForm(Form form, AllUserData userData){
-
-        if(!form.determineEligibility(userData)){
+    public Form fillForm(Form form, AllUserData userData) {
+        if (!form.determineEligibility(userData)) {
             return null;
         }
 
         File file = new File(form.getPath());
 
-        try(PDDocument pdDocument = Loader.loadPDF(file)){
+        try (PDDocument pdDocument = Loader.loadPDF(file)) {
+            PDAcroForm pdfForm = pdDocument.getDocumentCatalog().getAcroForm();
+            List<PDField> allFields = getAllFields(pdfForm);
 
-            PDAcroForm pdf = pdDocument.getDocumentCatalog().getAcroForm();
-
-            List<PDField> allFields = getAllFields(pdf);
-
-            for(PDField field : allFields){
+            for (PDField field : allFields) {
                 String value = userData.getValue(field.getFullyQualifiedName());
 
-                if(value != null){
+                if (value != null) {
                     field.setValue(value);
                 }
             }
 
-            /*
-            Rudimentary way to save new updated documents, prints the file url to console, so you can open the new file
-            in a browser.  You can test this by running any PdfFiller tests where the form is actually filled out.
-             */
-            pdDocument.save("../../veteransbenefits-client/src/pdfs/" + form.getName());
+            // Save to a temporary file
+            Path tempFilePath = Files.createTempFile(form.getName(), ".pdf");
+            pdDocument.save(tempFilePath.toFile());
+
+            // Create and return the updated form with the path to the temporary file
             Form updatedForm = new Form();
-            updatedForm.setPath("src/pdfs/" + form.getName());
-
-            // Print out link to updated form
-            File updatedFile = new File(updatedForm.getPath());
-            System.out.println(updatedFile.toURI().toURL());
-
-            // Return the updated form
+            updatedForm.setPath(tempFilePath.toString());
             return updatedForm;
-        } catch (IOException e){
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -67,17 +64,15 @@ public class PdfFiller {
     }
 
     /**
-     *
-     * @param pdf The form being filled in PDAcroForm format
-     * @return The list of all fields found in the form
+     * Retrieves all fields from a PDAcroForm.
+     * 
+     * @param pdf The PDAcroForm of the form being filled
+     * @return A list of all fields found in the form
      */
     public List<PDField> getAllFields(PDAcroForm pdf) {
-            if (pdf != null){
-                List<PDField> fields = pdf.getFields();
-
-                return fields;
-            }
-
+        if (pdf != null) {
+            return pdf.getFields();
+        }
         return Collections.emptyList();
     }
 }

@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  padding: 20px;
+  background-color: #f4f4f4;
+  font-family: "Arial", sans-serif;
+}
+
+p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+}

@@ -12,15 +12,15 @@ body {
 .image-slideshow {
   max-width: 1000px;
   width: 100%;
-  height: 300px; // Reduced height for the slideshow to show more of the image
+  height: 300px;
   margin: 50px auto;
-  overflow: hidden; // Hides the overflowed part of the image
+  overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .image-slideshow .image {
-  display: none; // Required for the slideshow functionality
+  display: none;
 }
 
 .image-slideshow .fade {
@@ -29,53 +29,52 @@ body {
 }
 
 img {
-  width: 100%; // Full width of the container
-  height: 300px; // Reduced height to match the container and show more of the image
-  object-fit: cover; // Ensures the image covers the container, cropping as needed
-  object-position: center 30%; // Centered and shifted downwards by 20%
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 30%;
   border-radius: 10px;
 }
 
 .container {
-  text-align: center; // Center align the text in the container
-  margin: 20px auto; // Margin for top and bottom
+  text-align: center;
+  margin: 20px auto;
 
   h2,
   h5 {
-    margin-bottom: 20px; // Spacing below each heading
+    margin-bottom: 20px;
   }
 
   a {
-    color: #007bff; // Blue color for links
-    font-weight: bold; // Bold links for emphasis
-    text-decoration: none; // No underline
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
 
     &:hover {
-      text-decoration: underline; // Underline on hover
+      text-decoration: underline;
     }
   }
 }
 
 .footer {
-  background-color: #f4f4f4; // Light grey background for the footer
-  padding: 20px 0; // Padding for top and bottom of the footer
-  margin-top: 40px; // Space before the footer
+  background-color: #f4f4f4;
+  padding: 20px 0;
+  margin-top: 40px;
 
   .container {
-    text-align: center; // Center align the footer content
+    text-align: center;
 
     a {
-      color: #007bff; // Blue color for footer links
-      text-decoration: none; // No underline
+      color: #007bff;
+      text-decoration: none;
 
       &:hover {
-        text-decoration: underline; // Underline on hover
+        text-decoration: underline;
       }
     }
   }
 }
 
-// Slideshow keyframes animation
 @keyframes fade {
   from {
     opacity: 0.5;
