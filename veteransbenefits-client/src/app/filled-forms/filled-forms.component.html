@@ -1,7 +1,7 @@
-<p>We got here!</p>
+<p>Your pre-filled forms can be found below.</p>
 
 <ul>
-    <li *ngFor="let form of pdfForms">
-        Path: {{form}}
-    </li>
+  <li *ngFor="let form of pdfForms">
+    <a href="{{ form }}" target="_blank">{{ getFileName(form) }}</a>
+  </li>
 </ul>

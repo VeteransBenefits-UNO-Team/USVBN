@@ -1,12 +1,16 @@
 package com.veteransbenefitsapi.veteransbenefits.model;
 
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * An entity to represent all user responses to the questionnaire, to be updated with all questionnaire response values
+ * An entity to represent all user responses to the questionnaire, to be updated
+ * with all questionnaire response values
  */
 @Data
 @Builder
@@ -158,14 +162,14 @@ public class AllUserData {
      */
     private String residentialStatus;
 
-
     /**
      *
      * @param value The questionnaire answer to be searched for
      * @return The field representing the questionnaire answer desired
      */
-    public String getValue(String value){
-        // TODO: Some forms may have variations of the same field, may need to add new case statements as we come across them.
+    public String getValue(String value) {
+        // TODO: Some forms may have variations of the same field, may need to add new
+        // case statements as we come across them.
         switch (value) {
             case "firstName":
                 return this.firstName;
@@ -173,23 +177,40 @@ public class AllUserData {
             case "lastName":
                 return this.lastName;
 
-            case "Email Address":
+            case "midInitial":
+                if (this.middleName != null && !this.middleName.isEmpty()) {
+                    return this.middleName.substring(0, 1);
+                } else {
+                    return null;
+                }
+
+            case "suffix":
+                return this.suffix;
+
+            case "dob":
+                if (this.dateOfBirth != null && !this.dateOfBirth.isEmpty()) {
+                    ZonedDateTime zonedDateTime = ZonedDateTime.parse(this.dateOfBirth);
+                    return zonedDateTime.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+                }
+                return null;
+
+            case "email":
                 return this.email;
 
             case "Years Served":
                 return Integer.toString(this.years);
-                
+
             case "Branch":
                 return this.branch;
-
-            case "resState":
-                return this.residentialState;
 
             case "resAddress":
                 return this.streetAddress;
 
             case "resCity":
                 return this.city;
+
+            case "resState":
+                return this.residentialState;
 
             case "resZip":
                 return this.residentialZip;
@@ -201,11 +222,13 @@ public class AllUserData {
 
     /**
      *
-     * @param eligibilityInfo An EligibilityInfo object to be mapped into AllUserData
-     * @param personalInfo A PersonalInfo object to be mapped into AllUserData
-     * @return An AllUserData object with a compilation of all eligibility and personal info
+     * @param eligibilityInfo An EligibilityInfo object to be mapped into
+     *                        AllUserData
+     * @param personalInfo    A PersonalInfo object to be mapped into AllUserData
+     * @return An AllUserData object with a compilation of all eligibility and
+     *         personal info
      */
-    public AllUserData applyAllData(EligibilityInfo eligibilityInfo, PersonalInfo personalInfo){
+    public AllUserData applyAllData(EligibilityInfo eligibilityInfo, PersonalInfo personalInfo) {
         this.setYears(eligibilityInfo.getYearsOfService());
         this.setBranch(eligibilityInfo.getBranch());
         this.setComponent(eligibilityInfo.getComponent());
