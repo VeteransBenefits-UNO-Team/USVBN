@@ -1,0 +1,21 @@
+name: Create Diagram
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Generate Repository Visualization
+        uses: githubocto/repo-visualizer@v0.5.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          output_format: svg
+          output_file: diagram.svg
