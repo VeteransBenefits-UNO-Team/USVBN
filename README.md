@@ -22,10 +22,9 @@ Release Notes: More polished frontend, connection between front and back ends, a
 V4 - Code Milestone 4
 We have decided to use MySQL database tables for external storage instead of IndexDB. The FAQ page is now functioning as expected, buttons will now display the answers to questions and the search bar is working as we expect it to. On the backend there are now objects to represent all user data, forms, and form requirements. The backend also has basic functionality for filling out the fields of a form, saving the updated form, and displaying the URL of the updated form so the result can be viewed. More progress has been made on the stepper and documentation of the project as well.
 
+V5 - Code Milestone 5
+This final milestone mainly consisted of polishing UI features and fixing issues we had with certain features. This mainly included the PDF download page and adding to the resources and knowledge base. We also worked on setting up the configuration for deployment on the Odin VM if we were to ever want to deploy the application in the future to a domain.
+
 Release Notes: Better documentation, FAQ page is functioning properly, basic functionality for filled out and saving forms, and better documentation.
 
 ![Visualization of the codebase](./diagram.svg)
-
-
-V5 - Code Milestone 5
-This final milestone mainly consisted of polishing UI features and fixing issues we had with certain features. This mainly included the PDF download page and adding to the resources and knowledge base. We also worked on setting up the configuration for deployment on the Odin VM if we were to ever want to deploy the application in the future to a domain. 
