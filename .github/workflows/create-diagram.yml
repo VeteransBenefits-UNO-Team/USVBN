@@ -15,3 +15,30 @@ jobs:
         uses: githubocto/repo-visualizer@main
         with:
           excluded_paths: "ignore,.github"
+
+      # Create a new branch
+      - name: Create new branch
+        run: |
+          git checkout -b update-diagram-${{ github.run_number }}
+
+      # Commit changes
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Repo visualizer: update diagram"
+
+      # Push changes
+      - name: Push changes
+        run: |
+          git push origin update-diagram-${{ github.run_number }}
+
+      # Create Pull Request
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: update-diagram-${{ github.run_number }}
+          title: "Update Diagram"
+          body: "Automated pull request to update the diagram."
