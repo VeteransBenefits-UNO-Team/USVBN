@@ -8,7 +8,7 @@ This documentation is automatically generated using [Doxygen](http://www.doxygen
 
 ## Navigating the Documentation
 
-You can start exploring the documentation by opening `index.html` in this repository, or you can visit the [online version](https://veteransbenefits-uno-team.github.io/USVBN/).
+You can start exploring the documentation by opening `index.html` in this repository, or you can visit the [online version](https://veteransbenefits-uno-team.github.io/USVBN/html/index.html).
 
 ## Contents
 
