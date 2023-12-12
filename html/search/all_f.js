@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['rankcategory_0',['RankCategory',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1RankCategory.html',1,'com::veteransbenefitsapi::veteransbenefits::enums::EligibilityInfoEnums']]],
+  ['rear_5fadmiral_1',['REAR_ADMIRAL',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1CoastGuardRanksOfficer.html#a77b176bb3dea835ed4794043cb10e1ac',1,'com::veteransbenefitsapi::veteransbenefits::enums::EligibilityInfoEnums::CoastGuardRanksOfficer']]],
+  ['rear_5fadmiral_5flower_5fhalf_2',['REAR_ADMIRAL_LOWER_HALF',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1CoastGuardRanksOfficer.html#a28c019ba75873df2cf33f0794b476ca7',1,'com.veteransbenefitsapi.veteransbenefits.enums.EligibilityInfoEnums.CoastGuardRanksOfficer.REAR_ADMIRAL_LOWER_HALF()'],['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1NavyRanksOfficer.html#abe0031e00f03a1ac7025f4c9482cfbe2',1,'com.veteransbenefitsapi.veteransbenefits.enums.EligibilityInfoEnums.NavyRanksOfficer.REAR_ADMIRAL_LOWER_HALF()']]],
+  ['rear_5fadmiral_5fupper_5fhalf_3',['REAR_ADMIRAL_UPPER_HALF',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1NavyRanksOfficer.html#abfd5b4a5750a7443d4773b20ba6bbc22',1,'com::veteransbenefitsapi::veteransbenefits::enums::EligibilityInfoEnums::NavyRanksOfficer']]],
+  ['relationship_4',['Relationship',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1PersonalInfoEnums_1_1Relationship.html',1,'com::veteransbenefitsapi::veteransbenefits::enums::PersonalInfoEnums']]],
+  ['rent_5',['RENT',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1PersonalInfoEnums_1_1ResidentialStatus.html#abe9117819447b5e1322c7a9dfc21b08e',1,'com::veteransbenefitsapi::veteransbenefits::enums::PersonalInfoEnums::ResidentialStatus']]],
+  ['requestauth_6',['RequestAuth',['../classcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1model_1_1requestmodels_1_1auth_1_1RequestAuth.html',1,'com::veteransbenefitsapi::veteransbenefits::model::requestmodels::auth']]],
+  ['requestauth_2ejava_7',['RequestAuth.java',['../RequestAuth_8java.html',1,'']]],
+  ['requirements_8',['Requirements',['../classcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1model_1_1Requirements.html',1,'com::veteransbenefitsapi::veteransbenefits::model']]],
+  ['requirements_2ejava_9',['Requirements.java',['../Requirements_8java.html',1,'']]],
+  ['requirementstest_10',['RequirementsTest',['../classcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1model_1_1RequirementsTest.html',1,'com::veteransbenefitsapi::veteransbenefits::model']]],
+  ['requirementstest_2ejava_11',['RequirementsTest.java',['../RequirementsTest_8java.html',1,'']]],
+  ['reserve_12',['RESERVE',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1ServiceType.html#acc342ed2e0e71468651bd68fb7e90153',1,'com::veteransbenefitsapi::veteransbenefits::enums::EligibilityInfoEnums::ServiceType']]],
+  ['residentialstatus_13',['ResidentialStatus',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1PersonalInfoEnums_1_1ResidentialStatus.html',1,'com::veteransbenefitsapi::veteransbenefits::enums::PersonalInfoEnums']]],
+  ['responseauth_14',['ResponseAuth',['../classcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1model_1_1requestmodels_1_1auth_1_1ResponseAuth.html',1,'com::veteransbenefitsapi::veteransbenefits::model::requestmodels::auth']]],
+  ['responseauth_2ejava_15',['ResponseAuth.java',['../ResponseAuth_8java.html',1,'']]],
+  ['role_16',['Role',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1model_1_1entities_1_1Role.html',1,'com::veteransbenefitsapi::veteransbenefits::model::entities']]],
+  ['role_2ejava_17',['Role.java',['../Role_8java.html',1,'']]]
+];

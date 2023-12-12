@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['black_5for_5fafrican_5famerican_0',['BLACK_OR_AFRICAN_AMERICAN',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1PersonalInfoEnums_1_1Ethnicity.html#a0d28f689bcd6605af75c37d779349baa',1,'com::veteransbenefitsapi::veteransbenefits::enums::PersonalInfoEnums::Ethnicity']]],
+  ['brigadier_5fgeneral_1',['BRIGADIER_GENERAL',['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1ArmyRanksOfficer.html#aa3a5fcb85d7e2a275c883bc18c9e3171',1,'com.veteransbenefitsapi.veteransbenefits.enums.EligibilityInfoEnums.ArmyRanksOfficer.BRIGADIER_GENERAL()'],['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1AirForceRanksOfficer.html#ae6f1065126ad096b36430fcae36389df',1,'com.veteransbenefitsapi.veteransbenefits.enums.EligibilityInfoEnums.AirForceRanksOfficer.BRIGADIER_GENERAL()'],['../enumcom_1_1veteransbenefitsapi_1_1veteransbenefits_1_1enums_1_1EligibilityInfoEnums_1_1MarineRanksOfficer.html#a8e977ea55e8e1b422b51c1683db5fbbb',1,'com.veteransbenefitsapi.veteransbenefits.enums.EligibilityInfoEnums.MarineRanksOfficer.BRIGADIER_GENERAL()']]]
+];
