@@ -1,0 +1,14 @@
+DOXYFILE_ENCODING      = UTF-8
+PROJECT_NAME           = "USVBN"
+PROJECT_BRIEF          = "Documentation generated using Doxygen"
+OUTPUT_DIRECTORY       = docs
+RECURSIVE              = YES
+FILE_PATTERNS          = *.c *.cc *.cxx *.cpp *.h *.hpp *.java *.py
+EXTRACT_ALL            = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_CALLGRAPHS    = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+GRAPHICAL_HIERARCHY    = YES
