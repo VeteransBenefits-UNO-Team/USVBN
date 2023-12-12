@@ -25,3 +25,7 @@ We have decided to use MySQL database tables for external storage instead of Ind
 Release Notes: Better documentation, FAQ page is functioning properly, basic functionality for filled out and saving forms, and better documentation.
 
 ![Visualization of the codebase](./diagram.svg)
+
+
+V5 - Code Milestone 5
+This final milestone mainly consisted of polishing UI features and fixing issues we had with certain features. This mainly included the PDF download page and adding to the resources and knowledge base. We also worked on setting up the configuration for deployment on the Odin VM if we were to ever want to deploy the application in the future to a domain. 
